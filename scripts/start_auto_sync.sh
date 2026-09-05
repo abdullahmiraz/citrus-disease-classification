@@ -21,8 +21,9 @@ if [ ! -f "$PYTHON_BIN" ]; then
     PYTHON_BIN="python3"
 fi
 
-nohup "$PYTHON_BIN" -u "$DIR/scripts/auto_sync_daemon.py" > "$LOG_FILE" 2>&1 &
+nohup "$PYTHON_BIN" -u "$DIR/scripts/auto_sync_daemon.py" </dev/null >> "$LOG_FILE" 2>&1 &
 NEW_PID=$!
+disown $NEW_PID
 echo "$NEW_PID" > "$PID_FILE"
 
 echo "✅ Auto-sync daemon started in background (PID: $NEW_PID)."
