@@ -14,3 +14,6 @@ missfont.log
 Thumbs.db
 .vscode/
 .idea/
+
+# Overleaf auth credentials
+.olauth
