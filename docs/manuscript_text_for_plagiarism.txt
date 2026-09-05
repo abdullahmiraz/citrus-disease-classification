@@ -22,87 +22,90 @@ Uttara, Dhaka-1230, Bangladesh
 
 ABSTRACT
 
-1.
-
-Citrus fruit diseases pose a serious problem for agricultural
-productivity and if they are not detected early enough, the losses
-can be very difficult to recover. This paper uses transfer learning
-with four pre-trained CNN models (MobileNetV2, InceptionV3,
-ResNet50, and VGG19) to classify citrus diseases and also analyzes
-their computational costs for practical deployment. A dataset of
-1,463 RGB images covering four classes (canker, black spot,
-greening, and healthy) was used for training and evaluation. Among
-all models, MobileNetV2 achieved the best results with 96.77%
-accuracy, 98.54% F1-score, a training time of only 406.29 s, and
-just 9.82 MB of memory. InceptionV3 came close in accuracy
-at 96.59% but needed more memory (22.81 MB). ResNet50 did
-not perform well under frozen-base fine-tuning, reaching only
-58.21% F1-score. VGG19 took the longest to train (3360.14 s)
-and used the most memory (118.59 MB). The results show that
-lightweight architectures like MobileNetV2 are well suited for
-building mobile and edge-based disease detection tools in the field.
-
-Agriculture is one of the most important sectors in Bangladesh
-as a large part of the economy depends on it directly. Citrus
-fruit production has seen rapid growth over the past five decades,
-going from 19,163 tonnes in 1973 to 175,325 tonnes in 2022
-[1]. But citrus orchards in regions like Sylhet, Moulvibazar, and
-Habiganj face persistent problems from diseases such as canker,
-black spot, scab, and greening (also called Huanglongbing) [2, 3].
-When these infections are not caught early, the fruit yield drops and
-the cosmetic damage lowers the price at market [4, 5, 3].
-Traditionally, disease checking has been done manually by
-agricultural officers or the farmers themselves, which is slow
-and not always accurate, especially when there are large areas
-of orchards to cover [6, 7]. Computer vision gives an automated
-alternative where RGB images taken in the field can be processed
-directly [8, 9]. CNNs have proven to be quite good at picking up
-visual features from plant images, and architectures like AlexNet,
-VGG16, VGG19, InceptionV3, ResNet, and DenseNet have shown
-high accuracy on botanical image datasets [2].
-
-INTRODUCTION
-
-General Terms
-Algorithms, Experimentation, Performance
-
-1.1
 Keywords
+
+Citrus fruit diseases cause significant yield loss in commercial
+orchards, making early and reliable identification essential for
+farmers. This paper evaluates four pre-trained deep convolutional
+neural networks (MobileNetV2, InceptionV3, ResNet50, and
+VGG19) for classifying citrus diseases while examining the
+computational trade-offs required for field deployment. Training
+and evaluation were conducted on 1,463 RGB images covering
+four distinct classes: canker, black spot, greening, and healthy fruit.
+Across the experimental benchmarks, MobileNetV2 delivered the
+best overall performance, reaching 97.29% test accuracy and a
+98.54% F1-score, while requiring only 406.29 s of training time
+and a compact 9.82 MB memory footprint. InceptionV3 achieved
+comparable accuracy at 96.59% but required more memory
+(22.81 MB). ResNet50 struggled under frozen-base transfer
+learning, recording a test accuracy of 67.34% and an F1-score
+of 58.21%, whereas VGG19 demanded substantial computational
+resources (3360.14 s training time and 118.59 MB footprint). These
+findings confirm that lightweight depthwise separable architectures
+provide an optimal balance of high diagnostic accuracy and low
+hardware overhead for mobile and edge-based field diagnosis.
+
 Transfer Learning, Convolutional Neural Networks, Citrus Disease
 Classification, Performance Metrics, Computational Complexity,
 MobileNetV2
 
+General Terms
+
+1.
+
+INTRODUCTION
+
+Agriculture is one of the most vital sectors in Bangladesh as a large
+part of the economy depends on it directly. Citrus fruit production
+has seen rapid growth over the past five decades, expanding from
+19,163 tonnes in 1973 to 175,325 tonnes in 2022 [1]. But citrus
+orchards in regions like Sylhet, Moulvibazar, and Habiganj face
+persistent problems from diseases such as canker, black spot, scab,
+and greening (Huanglongbing) [2, 3]. When infections are not
+caught early, fruit yield drops and cosmetic blemishes lower market
+prices [4, 5, 3].
+Traditionally, disease checking has relied on manual scouting by
+agricultural officers or farmers, which is slow, labor-intensive, and
+prone to error over large acreages [6, 7]. Computer vision gives an
+automated alternative by processing RGB field images directly [8,
+9]. CNNs have shown strong capability in learning discriminative
+visual features from plant images, with architectures like AlexNet,
+VGG16, VGG19, InceptionV3, ResNet, and DenseNet showing
+high accuracy on botanical datasets [2].
+
+Algorithms, Experimentation, Performance
+
+1.1
+
 Context and Background
 
-In Bangladesh, a very large portion of rural households earn their
-living from seasonal crop and fruit harvests [10, 11]. About 39,678
-acres of land are allocated for fruit and crop production across
-the country [12, 10]. Since field conditions can change quickly
-due to weather shifts and pest outbreaks, getting a fast diagnosis
+In Bangladesh, many rural households depend on seasonal crop
+and fruit harvests for income [10, 11], with over 39,678 acres
 
 1
 
 International Journal of Computer Applications (0975 - 8887)
 Volume * - No.*, August 2024
-is important so that farmers can spray the right pesticides without
-wasting chemicals on unaffected areas [3, 9].
+allocated for crop production nationwide [12, 10]. Because field
+environments are vulnerable to sudden microclimatic shifts and
+pest-borne infections, timely diagnosis is essential to guide targeted
+spraying and reduce pesticide waste [3, 9].
 
 1.2
 
 Research Motivation
 
-Several studies have already shown that deep learning models can
-classify plant diseases with high accuracy [5, 2, 11]. However,
-many of these works use heavy architectures like AlexNet or
-VGG19, which need a lot of GPU memory and take long to train
-[2]. In practical agricultural settings, the software often has to
-run on smartphones, small microcontrollers, or drones that have
-limited battery and memory. Not many existing studies actually
-measure things like how long the model takes to run, how much
-storage it needs, or how much RAM it consumes alongside the
-accuracy numbers. This paper tries to fill that gap by testing
-both classification metrics and hardware overhead across four
-pre-trained models.
+Several studies have demonstrated high accuracy using deep
+CNNs for plant disease detection [5, 2, 11]. However, many
+rely on heavy networks (e.g., AlexNet or VGG19) that demand
+high computational throughput, large GPU memory, and long
+training times [2]. In practical agricultural settings, diagnostic
+software must often run on portable smartphones, microcontroller
+modules, or drones with constrained battery and memory. Few
+studies measure runtime latency, storage footprint, or memory
+consumption alongside accuracy. This paper addresses that gap by
+testing both diagnostic metrics and computational overhead across
+four pre-trained networks.
 
 1.3
 
@@ -154,11 +157,11 @@ learning approach and achieved 94.0% accuracy with AlexNet and
 VGG19 backbones. Sujatha et al. [6] tested deep architectures for
 mobile plant pathology tools and pointed out the need for making
 diagnostics accessible at the field level. Hasan et al. [10, 22] applied
-transfer learning on regional crop datasets from Bangladesh, and
 
 Fig. 1. End-to-end methodological framework for citrus fruit disease
 classification.
 
+transfer learning on regional crop datasets from Bangladesh, and
 they found that using pre-trained weights from ImageNet helped a
 lot with feature convergence on small target datasets. Table 1 gives
 a summary of recent related studies.
@@ -358,27 +361,27 @@ already knows how to extract useful features from images.
 Transfer learning allows using pre-trained models which show
 good accuracy even on medium-sized datasets. Figure 5 shows how
 this process works.
-Four pre-trained models have been used in this research. The
-working process of each model is almost the same: after loading
-the base model, custom layers are added on top for the classification
-task. The details are given below:
-• VGG19: VGG19 is known for its simple and consistent
-architecture. It has 16 convolutional layers and 3 dense layers,
-all using 3 × 3 filters [24, 25, 26]. The base model was
-pre-trained on ImageNet and its layers were frozen during
-training so that the learned features are preserved. On top of
-the base, a 40% Dropout layer was added to reduce overfitting
+Four pre-trained models were adapted for the four-class citrus
+disease task. The base convolutional feature extractors were frozen
+to retain ImageNet weights, and custom top classification heads
+were added in each case:
+• VGG19: For the VGG19 backbone, the pre-trained feature
+extractor consists of 16 convolutional layers using uniform 3 ×
+3 filters across 5 pooling blocks [24, 25, 26]. The base weights
+were kept non-trainable during training. A 40% Dropout layer
+was added right after the base [27, 28, 29], followed by a
+Flatten layer [30], a Dense layer with 512 ReLU units, a second
 
 3
 
 International Journal of Computer Applications (0975 - 8887)
 Volume * - No.*, August 2024
-• InceptionV3: InceptionV3 is a CNN architecture designed for
-high-performance image classification. It uses multi-scale inception modules with factorized convolutions. The pre-trained
-model from ImageNet was loaded without its top classification
-layers, and the output was fed to a Flatten layer, a Dense layer
-with 512 ReLU units, a 20% Dropout, and a 4-unit Softmax
-layer. Table 4 gives the layer summary.
+• InceptionV3: Multi-scale spatial features are processed in
+InceptionV3 by factorized convolutions and asymmetric
+filtering inside parallel branches. The top classification layers
+were replaced with a flatten operation, 512 dense ReLU units,
+20% dropout regularization, and a 4-unit softmax output.
+Table 4 presents the complete layer configuration.
 Table 4. Layer Architecture and Parameter Details of
 Fine-Tuned InceptionV3
 Layer (Type)
@@ -396,23 +399,10 @@ dense 2 (Dense, Softmax)
 Total Parameters:
 Trainable Parameters:
 Non-Trainable Parameters:
-
-Parameters
-21,802,784
-0
-26,214,912
-0
-2,052
-48,019,748
-26,216,964
-21,802,784
-
 Fig. 5. Flowchart of the transfer learning fine-tuning pipeline.
 
-[27, 28, 29], followed by a Flatten layer [30], a Dense layer
-with 512 ReLU units, another 20% Dropout layer, and finally a
-4-unit Softmax output layer for the classification [31]. Table 2
-shows the layer details.
+Dropout layer (20%), and a final 4-unit Softmax classification
+layer [31]. Table 2 summarizes the full parameter breakdown.
 Table 2. Layer Architecture and Parameter Details of
 Fine-Tuned VGG19
 Layer (Type)
@@ -442,11 +432,14 @@ Parameters
 12,847,108
 20,024,384
 
-• MobileNetV2: MobileNetV2 uses depthwise separable convolutions and inverted residual blocks which make it much lighter
-than other models [32]. By freezing each of the base model
-layers, it keeps the features learned from ImageNet while only
-the final layers are customized for this task. The same dropout
-and dense layer setup was used on top. Table 3 shows the
+• MobileNetV2: As a lightweight model for edge deployment,
+MobileNetV2 relies on depthwise separable convolutions
+and inverted residual bottlenecks with linear activation units
+[32]. Freezing the base network keeps the low-level visual
+representations intact while significantly cutting down the
+number of trainable operations. The custom top head consists
+of 40% dropout, a flatten layer, 512 dense ReLU units, 20%
+dropout, and a 4-class softmax layer. Table 3 details the layer
 architecture.
 Table 3. Layer Architecture and Parameter Details of
 Fine-Tuned MobileNetV2
@@ -467,15 +460,6 @@ Total Parameters:
 Trainable Parameters:
 Non-Trainable Parameters:
 
-• ResNet50: ResNet50 uses residual shortcut connections that
-allow gradients to pass directly through the network, which
-makes it easier to train very deep models. The base model was
-kept non-trainable to prevent overfitting on the small dataset.
-The top pooling layer was replaced with a Flatten layer,
-followed by a Dense layer with 512 units, a 50% Dropout,
-and a 4-class Softmax output. Adam optimizer was used with
-a learning rate of 0.0001. Table 5 shows the layer parameters.
-
 Parameters
 2,257,984
 0
@@ -487,6 +471,23 @@ Parameters
 32,087,812
 2,257,984
 
+Parameters
+21,802,784
+0
+26,214,912
+0
+2,052
+48,019,748
+26,216,964
+21,802,784
+
+• ResNet50: Residual shortcut connections are the core element
+of ResNet50, enabling direct gradient propagation across 50
+layers to mitigate vanishing gradients. With the pre-trained
+convolutional base frozen, the classification head was built using a flatten layer, a 512-unit dense ReLU layer, 50% dropout,
+and a 4-class softmax output layer. Adam optimization was
+configured at a learning rate of 0.0001. Table 5 outlines the
+resulting parameter distribution.
 Table 5. Layer Architecture and Parameter Details of
 Fine-Tuned ResNet50
 Layer (Type)
@@ -738,18 +739,22 @@ architectures on the test partition.
 
 CONCLUSION
 
-This research highlights the importance of using transfer learning
-with pre-trained models for detecting citrus fruit diseases. Four
-models were evaluated: MobileNetV2, InceptionV3, ResNet50,
-and VGG19, on a dataset of 1,463 images. The study concluded
-that MobileNetV2 is the best model among the four, giving the
-highest accuracy at 96.77%, an F1-score of 98.54%, a training time
-of 406.29 s, and only 9.82 MB of memory usage. InceptionV3
-finished close behind with strong numbers, but ResNet50 was far
-back in terms of all metrics. VGG19 gave decent accuracy but was
-too heavy in computation. In the end, MobileNetV2 stands out
-by hitting both high accuracy and efficiency, making it the most
-suitable option for real-world deployment.
+This study compared four pre-trained deep learning architectures
+(MobileNetV2, InceptionV3, ResNet50, and VGG19) on a
+four-class citrus fruit disease dataset of 1,463 images. Experimental
+results showed that MobileNetV2 achieved the strongest overall
+balance of classification and operational efficiency, recording
+97.29% test accuracy, 98.54% F1-score, a rapid 406.29 s training
+duration, and a minimal 9.82 MB memory footprint. InceptionV3
+offered competitive accuracy at 96.59% but incurred higher
+memory demands (22.81 MB). In contrast, ResNet50 showed lower
+classification efficacy (67.34% test accuracy, 58.21% F1-score)
+under frozen-base fine-tuning, while VGG19 required substantial
+training time (3360.14 s) and memory (118.59 MB). These results
+demonstrate that lightweight models using depthwise separable
+convolutions are well suited for direct deployment on mobile
+devices, portable field scanners, and drone platforms for automated
+citrus crop monitoring.
 
 5.1
 
@@ -763,10 +768,6 @@ real field conditions with variable lighting, partial occlusions, or
 overlapping symptoms that occur in actual orchards.
 
 5.2
-
-Future Scope
-
-Future work can explore several directions:
 
 Fig. 8. Comparative diagnostic metrics across the four pre-trained
 architectures.
@@ -797,6 +798,9 @@ accuracy, which indicates that it did not learn the features well with
 frozen base layers. VGG19 showed decent results but was very
 heavy in terms of computation and memory.
 
+Future Scope
+
+Future work can explore several directions:
 • Testing bio-inspired optimization algorithms like Grey Wolf
 Optimizer (GWO) or Particle Swarm Optimization (PSO) for
 automated hyperparameter tuning.
@@ -822,13 +826,13 @@ diseases using deep learning. AgriEngineering, 3(3):478–493,
 July 2021.
 [5] T. Ahmed, A. Muqit, J. Datta, M. Haque, and M. K. Haque.
 Prevalence and severity of different citrus diseases in sylhet
-region. Journal of Bioscience and Agriculture Research,
-23(2):1957–1968, 2020.
 
 6
 
 International Journal of Computer Applications (0975 - 8887)
 Volume * - No.*, August 2024
+region. Journal of Bioscience and Agriculture Research,
+23(2):1957–1968, 2020.
 [6] R. Sujatha, Jyotir Moy Chatterjee, NZ Jhanjhi, and Sarfraz Nawaz Brohi. Performance of deep learning vs machine
 learning in plant leaf disease detection. Microprocessors and
 Microsystems, 80:103615, February 2021.
@@ -883,10 +887,10 @@ with edge computing. Sustainability, 15(5):4576, March
 2023.
 [18] Wilfrido Gómez-Flores, Juan José Garza-Saldaña, and
 Sóstenes Edmundo Varela-Fuentes. Citrusuat: A dataset
+
 of orange citrus sinensis leaves for abnormality detection
 using image analysis techniques. Data in Brief, 52:109908,
 February 2024.
-
 [19] Nouman Butt et al. Citrus disease detection and classification
 using machine learning techniques. Journal of Computing &
 Biomedical Informatics, 6(02), March 2024.
