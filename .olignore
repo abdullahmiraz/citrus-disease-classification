@@ -1,0 +1,14 @@
+.git*
+.github*
+*.log
+*.aux
+*.out
+*.toc
+*.blg
+*.fls
+*.fdb_latexmk
+missfont.log
+scripts/*
+docs/*
+diagrams/*
+IJCA_Submission_Package.zip
