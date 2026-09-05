@@ -15,5 +15,11 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Overleaf auth credentials
+# Python cache
+__pycache__/
+*.pyc
+
+# Overleaf auth credentials & daemon logs
 .olauth
+.auto_sync.pid
+.auto_sync.log
