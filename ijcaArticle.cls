@@ -353,9 +353,9 @@ minus 2pt\itemsep 2pt plus 1pt minus .5pt}
 \renewcommand\p@enumiii{\theenumi(\theenumii)}
 \renewcommand\p@enumiv{\p@enumiii\theenumiii}
 
-\def\itemize{\list{\textbullet\hskip -\labelsep}{\settowidth
- {\leftmargin}{\textbullet}\labelwidth\leftmargin
- \addtolength{\labelwidth}{-\labelsep}}}
+\def\itemize{\list{\textbullet}{\leftmargin\leftmargini
+ \labelsep 6pt\labelwidth\leftmargini\advance\labelwidth-\labelsep
+ \itemsep 2pt plus 1pt minus 0.5pt\topsep 3pt plus 1pt minus 1pt\parsep 0pt}}
 \let\enditemize\endlist
 \def\longitem{\list{\textbullet}{\labelwidth\z@
  \leftmargin\z@ \itemindent\parindent \advance\itemindent\labelsep}}

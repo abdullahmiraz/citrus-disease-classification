@@ -119,12 +119,13 @@ across four popular transfer learning models.
 Objectives and Scope
 
 The primary objectives of this study are:
-•To fine-tune four pre-trained CNN architectures (MobileNetV2,
-InceptionV3, ResNet50, and VGG19) on a four-class citrus fruit
-disease dataset.
-•To evaluate both classification accuracy (precision, recall, F1score, overall accuracy) and resource metrics (training duration,
-test inference latency, parameter counts, memory usage).
-•To identify lightweight, efficient models suitable for practical
+• To fine-tune four pre-trained CNN architectures (MobileNetV2, InceptionV3, ResNet50, and VGG19) on a
+four-class citrus fruit disease dataset.
+• To evaluate both classification accuracy (precision, recall,
+F1-score, overall accuracy) and resource metrics (training
+duration, test inference latency, parameter counts, memory
+usage).
+• To identify lightweight, efficient models suitable for practical
 deployment on resource-limited agricultural devices.
 
 1.4
@@ -195,12 +196,13 @@ Dataset Overview and Preparation
 The experimental dataset contains 1,463 RGB images collected
 from PlantVillage and Kaggle repositories. Four distinct condition
 classes are included:
-•Canker: Raised corky lesions caused by the bacterium Xanthomonas citri.
-•Black Spot: Necrotic fungal spots caused by Phyllosticta
+• Canker: Raised corky lesions caused by the bacterium
+Xanthomonas citri.
+• Black Spot: Necrotic fungal spots caused by Phyllosticta
 citricarpa.
-•Greening (HLB): Mottled yellowing caused by vector-spread
+• Greening (HLB): Mottled yellowing caused by vector-spread
 bacterial infection.
-•Healthy: Asymptomatic fruit samples free from visual defects.
+• Healthy: Asymptomatic fruit samples free from visual defects.
 
 2
 
@@ -352,12 +354,12 @@ validation (146 images), and 10% for test evaluation (147 images),
 as shown in Figure 4. The test set was kept completely untouched
 during training to provide an unbiased assessment.
 
-•Pixel rescaling to the range [0, 1].
-•Random rotation within [−20◦ , +20◦ ].
-•Horizontal and vertical shifts up to 20%.
-•Random shear transformations.
-•Random zoom adjustments up to 20%.
-•Random horizontal flipping.
+• Pixel rescaling to the range [0, 1].
+• Random rotation within [−20◦ , +20◦ ].
+• Horizontal and vertical shifts up to 20%.
+• Random shear transformations.
+• Random zoom adjustments up to 20%.
+• Random horizontal flipping.
 All input images were standardized to 224 × 224 × 3 pixels and
 processed in mini-batches of 32 images.
 
@@ -426,11 +428,7 @@ Fig. 5. Flowchart of the transfer learning fine-tuning pipeline.
 pattern extraction. Figure 5 shows the transfer learning fine-tuning
 structure used in this work.
 Four deep architectures were evaluated:
-
-Table 5. Layer Architecture and Parameter Details of
-Fine-Tuned ResNet50
-
-•VGG19: Consists of 19 layers structured with small 3 × 3
+• VGG19: Consists of 19 layers structured with small 3 × 3
 convolutional filters [24, 25, 26]. The convolutional base was
 frozen during training. A 40% Dropout layer [27, 28, 29]
 was placed after the base, followed by a Flatten layer [30], a
@@ -438,6 +436,8 @@ Dense layer with 512 ReLU units, a 20% Dropout layer, and a
 4-unit Softmax classification layer [31]. Table 2 lists the layer
 configurations and parameter counts.
 
+Table 5. Layer Architecture and Parameter Details of
+Fine-Tuned ResNet50
 Layer (Type)
 Output Shape
 ResNet50 (Base)
@@ -483,20 +483,19 @@ Parameters
 12,847,108
 20,024,384
 
-•MobileNetV2: Uses depthwise separable convolutions and
-inverted residual blocks with linear bottlenecks [32]. The base
-feature extractor remained frozen, followed by the same top
-classification head and dropout regularization. Table 3 summarizes
-the architecture specifications.
-•InceptionV3: Employs multi-scale factorization with factorized
-asymmetric convolutions. The custom top head consists of a
-Flatten layer, a Dense layer (512 units), Dropout regularization,
-and a Softmax output layer. Table 4 shows the parameter
-breakdown.
-•ResNet50: Uses residual shortcut connections to allow gradient
-flow through deep layer stacks. The top classification layers were
-replaced with custom Dense and Dropout layers. Table 5 outlines
-the layer details.
+• MobileNetV2: Uses depthwise separable convolutions and
+inverted residual blocks with linear bottlenecks [32]. The
+base feature extractor remained frozen, followed by the same
+top classification head and dropout regularization. Table 3
+summarizes the architecture specifications.
+• InceptionV3: Employs multi-scale factorization with factorized asymmetric convolutions. The custom top head consists
+of a Flatten layer, a Dense layer (512 units), Dropout
+regularization, and a Softmax output layer. Table 4 shows the
+parameter breakdown.
+• ResNet50: Uses residual shortcut connections to allow
+gradient flow through deep layer stacks. The top classification
+layers were replaced with custom Dense and Dropout layers.
+Table 5 outlines the layer details.
 
 Parameters
 21,802,784
@@ -726,10 +725,10 @@ VGG19
 
 International Journal of Computer Applications (0975 - 8887)
 Volume * - No.*, August 2024
-•Developing lightweight hybrid vision transformer models for edge
-devices.
-•Incorporating visual explanation techniques, such as Grad-CAM,
-to highlight lesion regions and assist agricultural field workers.
+• Developing lightweight hybrid vision transformer models for
+edge devices.
+• Incorporating visual explanation techniques, such as GradCAM, to highlight lesion regions and assist agricultural field
+workers.
 
 6.
 
@@ -789,9 +788,8 @@ leaf symptoms that require testing on larger multi-source datasets.
 Future Scope
 
 Future work will explore several avenues:
-•Testing metaheuristic optimization algorithms (such as Grey
-Wolf Optimizer or Particle Swarm Optimization) for automated
-hyperparameter tuning.
+• Testing metaheuristic optimization algorithms (such as Grey
+Wolf Optimizer or Particle Swarm Optimization) for automated hyperparameter tuning.
 
 REFERENCES
 
