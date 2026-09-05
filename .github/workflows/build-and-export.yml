@@ -13,22 +13,24 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Export draw.io Diagrams to PNG
         uses: rlespinasse/drawio-export-action@v2
         with:
           path: diagrams
+          output: figures
           format: png
           transparent: false
           border: 10
           scale: 3
+          action-mode: all
 
       - name: Setup TeX Live and Compile LaTeX Manuscript
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
-          latexmk_use_lualatex: false
-          latexmk_use_xelatex: false
           args: "-pdf -bibtex -interaction=nonstopmode -file-line-error"
 
       - name: Upload Compiled Manuscript PDF
