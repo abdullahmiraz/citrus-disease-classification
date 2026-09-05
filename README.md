@@ -9,7 +9,7 @@ This repository contains the complete LaTeX source code, editable **Draw.io** di
 
 ---
 
-## 📁 Professional Repository Layout
+## 📁 Practical Repository Structure
 
 ```
 citrus-disease-classification/
@@ -17,32 +17,32 @@ citrus-disease-classification/
 │   └── workflows/
 │       └── build-and-export.yml           # CI: Auto-export draw.io diagrams & build LaTeX PDF
 ├── diagrams/                              # 🎨 Editable Draw.io source diagrams (Source of Truth)
-│   ├── figure1_proposed_methodology.drawio
-│   ├── figure5_pretrained_workflow.drawio
-│   ├── figure6_tensorflow_architecture.drawio
+│   ├── fig1_methodology.drawio            # Figure 1: Proposed Methodology
+│   ├── fig5_pretrained_workflow.drawio    # Figure 5: Transfer Learning Workflow
+│   ├── fig6_tensorflow_architecture.drawio# Figure 6: Framework Architecture
 │   └── README.md                          # Interactive editing guide
 ├── figures/                               # 🖼️ Publication-ready 300+ DPI figures
-│   ├── Untitled Diagram.png               # Figure 1: Proposed Methodology
-│   ├── dataset visualization.png          # Figure 2: Class Distribution
-│   ├── Sample images.png                  # Figure 3: Sample Citrus Images
-│   ├── Dataset Spilt.png                  # Figure 4: Dataset Splitting
-│   ├── Pre-trained Process Diagram.png    # Figure 5: Transfer Learning Workflow
-│   ├── Tensorflow architecture.png        # Figure 6: Framework Architecture
-│   ├── Confusion Matrix of all models.png # Figure 7: Confusion Matrices
-│   └── Performance metrics.png            # Figure 8: Performance Metrics
+│   ├── fig1_methodology.png
+│   ├── fig2_class_distribution.png
+│   ├── fig3_sample_images.png
+│   ├── fig4_dataset_split.png
+│   ├── fig5_pretrained_workflow.png
+│   ├── fig6_tensorflow_architecture.png
+│   ├── fig7_confusion_matrices.png
+│   └── fig8_performance_metrics.png
 ├── scripts/                               # ⚙️ Helper scripts & figure generation
 │   ├── build_pdf.sh                       # Local compilation script
 │   ├── generate_figures.py                # Python Matplotlib/PIL renderer
 │   └── generate_drawio.py                 # Draw.io XML generator
 ├── docs/                                  # 📋 Referee report & submission checklists
-│   ├── Referee's Report.pdf
+│   ├── referee_report.pdf
 │   └── submission_checklist.md
 ├── submission-guide/                      # 📜 Official IJCA template and guidelines
-├── Thesis.tex                             # 📄 Main LaTeX manuscript (Overleaf Root)
-├── References.bib                         # 📚 Curated bibliography (32 references)
+├── main.tex                               # 📄 Main LaTeX manuscript (Overleaf Root)
+├── references.bib                         # 📚 Curated bibliography (32 references)
 ├── ijcaArticle.cls                        # 🏛️ Official IJCA document class
 ├── ijcaArticle.bst                        # 🔢 Official IJCA consecutive citation style
-├── Thesis.pdf                             # 📕 Compiled 7-page publication PDF
+├── main.pdf                               # 📕 Compiled 7-page publication PDF
 ├── IJCA_Submission_Package.zip            # 📦 Upload-ready distribution archive
 ├── .gitignore
 └── README.md
@@ -57,10 +57,10 @@ All system diagrams are stored as native **`.drawio`** files in the [`diagrams/`
 ### Method 1: Web Browser (Zero Setup)
 1. Navigate to [**app.diagrams.net**](https://app.diagrams.net/).
 2. Click **"Open from GitHub"** $\rightarrow$ select `abdullahmiraz/citrus-disease-classification`.
-3. Choose the diagram (e.g., [`figure1_proposed_methodology.drawio`](./diagrams/figure1_proposed_methodology.drawio)).
-4. Make your edits visually and press `Ctrl+S` / `Cmd+S` to commit directly to GitHub!
+3. Choose any diagram from the `diagrams/` folder (e.g., [`fig1_methodology.drawio`](./diagrams/fig1_methodology.drawio)).
+4. Make your edits visually and press `Ctrl+S` / `Cmd+S` to **commit directly to GitHub**!
 
-### Method 2: In VS Code / IDE
+### Method 2: In VS Code / Antigravity IDE
 1. Install the **Draw.io Integration** extension (`hediet.vscode-drawio`).
 2. Click any `.drawio` file to open the interactive diagram editor right inside your IDE.
 
@@ -72,7 +72,7 @@ This repository is structured for seamless 1-click synchronization with **Overle
 
 1. In Overleaf, create a new project and select **"Import from GitHub"**.
 2. Select `abdullahmiraz/citrus-disease-classification`.
-3. Overleaf will automatically detect `Thesis.tex` in the root folder, resolve all image assets via `figures/`, and compile immediately with 0 configuration needed.
+3. Overleaf will automatically detect `main.tex` in the root folder, resolve all image assets via `figures/`, and compile immediately with 0 configuration needed.
 
 ---
 

@@ -192,13 +192,13 @@ def build_fig6_drawio():
 import os
 os.makedirs('/home/neo/Documents/research-publish/citrus-disease-classification/diagrams', exist_ok=True)
 
-with open('/home/neo/Documents/research-publish/citrus-disease-classification/diagrams/figure1_proposed_methodology.drawio', 'w') as f:
+with open('/home/neo/Documents/research-publish/citrus-disease-classification/diagrams/fig1_methodology.drawio', 'w') as f:
     f.write(build_fig1_drawio())
 
-with open('/home/neo/Documents/research-publish/citrus-disease-classification/diagrams/figure5_pretrained_workflow.drawio', 'w') as f:
+with open('/home/neo/Documents/research-publish/citrus-disease-classification/diagrams/fig5_pretrained_workflow.drawio', 'w') as f:
     f.write(build_fig5_drawio())
 
-with open('/home/neo/Documents/research-publish/citrus-disease-classification/diagrams/figure6_tensorflow_architecture.drawio', 'w') as f:
+with open('/home/neo/Documents/research-publish/citrus-disease-classification/diagrams/fig6_tensorflow_architecture.drawio', 'w') as f:
     f.write(build_fig6_drawio())
 
 print('Created all 3 .drawio files in diagrams/ directory successfully!')

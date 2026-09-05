@@ -151,7 +151,7 @@ def generate_figure_1():
     
     ax.set_ylim(-7, 105)
     plt.tight_layout()
-    plt.savefig('/home/neo/Documents/research-publish/citrus-disease-classification/Thesis/Untitled Diagram.png', dpi=300, bbox_inches='tight')
+    plt.savefig('/home/neo/Documents/research-publish/citrus-disease-classification/figures/fig1_methodology.png', dpi=300, bbox_inches='tight')
     plt.close()
     print('Refined Figure 1 with clear layout!')
 
