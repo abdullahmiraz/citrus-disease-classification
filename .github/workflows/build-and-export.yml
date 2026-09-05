@@ -1,0 +1,38 @@
+name: Diagram Export and LaTeX Build CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  export-diagrams-and-compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Export draw.io Diagrams to PNG
+        uses: rlespinasse/drawio-export-action@v2
+        with:
+          path: diagrams
+          format: png
+          transparent: false
+          border: 10
+          scale: 3
+
+      - name: Setup TeX Live and Compile LaTeX Manuscript
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Thesis.tex
+          latexmk_use_lualatex: false
+          latexmk_use_xelatex: false
+          args: "-pdf -bibtex -interaction=nonstopmode -file-line-error"
+
+      - name: Upload Compiled Manuscript PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: Citrus-Disease-Classification-Manuscript
+          path: Thesis.pdf

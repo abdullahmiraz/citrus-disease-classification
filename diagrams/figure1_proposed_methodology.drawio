@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<mxfile host="app.diagrams.net" modified="2026-09-05T08:00:00.000Z" agent="Antigravity" version="24.0.0">
+  <diagram name="Proposed Methodology Flowchart" id="proposed_methodology_flowchart">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="101" parent="1" value="Data Collection Phase" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontFamily=Helvetica;fontSize=13;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="100" y="60" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="102" parent="1" value="Citrus Dataset" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#D5E8D4;strokeColor=#82B366;fontFamily=Helvetica;fontSize=12;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="380" y="50" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="201" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="101" target="102">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="103" parent="1" value="• Greening&lt;br&gt;• Canker&lt;br&gt;• Blackspot&lt;br&gt;• Healthy" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=5 5;fillColor=#F8F9FA;strokeColor=#7F8C8D;fontFamily=Helvetica;fontSize=11;align=left;spacingLeft=10;strokeWidth=1.2;" vertex="1">
+          <mxGeometry x="620" y="50" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="202" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7F8C8D;strokeWidth=1.2;dashed=1;endArrow=classic;endFill=1;" edge="1" source="102" target="103">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="104" parent="1" value="Test Dataset" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#D5E8D4;strokeColor=#82B366;fontFamily=Helvetica;fontSize=12;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="160" y="190" width="130" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="105" parent="1" value="Train Dataset" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#D5E8D4;strokeColor=#82B366;fontFamily=Helvetica;fontSize=12;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="395" y="190" width="130" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="106" parent="1" value="Validation Dataset" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#D5E8D4;strokeColor=#82B366;fontFamily=Helvetica;fontSize=12;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="630" y="190" width="130" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="203" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="102" target="104">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="204" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="102" target="105">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="205" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="102" target="106">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="107" parent="1" value="Data Preprocessing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontFamily=Helvetica;fontSize=13;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="365" y="310" width="190" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="206" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="105" target="107">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="108" parent="1" value="• Rescale [0, 1]&lt;br&gt;• Rotate (±20°)&lt;br&gt;• Translation (20%)&lt;br&gt;• Shear &amp;amp; Zoom&lt;br&gt;• Horizontal Flip" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=5 5;fillColor=#F8F9FA;strokeColor=#7F8C8D;fontFamily=Helvetica;fontSize=11;align=left;spacingLeft=10;strokeWidth=1.2;" vertex="1">
+          <mxGeometry x="630" y="295" width="160" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="207" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7F8C8D;strokeWidth=1.2;dashed=1;endArrow=classic;endFill=1;" edge="1" source="107" target="108">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="109" parent="1" value="Load Pre-Trained Models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontFamily=Helvetica;fontSize=13;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="365" y="440" width="190" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="208" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="107" target="109">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="110" parent="1" value="• InceptionV3&lt;br&gt;• VGG19&lt;br&gt;• MobileNetV2&lt;br&gt;• ResNet50" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=5 5;fillColor=#F8F9FA;strokeColor=#7F8C8D;fontFamily=Helvetica;fontSize=11;align=left;spacingLeft=10;strokeWidth=1.2;" vertex="1">
+          <mxGeometry x="630" y="430" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="209" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7F8C8D;strokeWidth=1.2;dashed=1;endArrow=classic;endFill=1;" edge="1" source="109" target="110">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="111" parent="1" value="Train and Validate&lt;br&gt;the Models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontFamily=Helvetica;fontSize=13;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="365" y="570" width="190" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="210" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="109" target="111">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="112" parent="1" value="Train Dataset" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#D5E8D4;strokeColor=#82B366;fontFamily=Helvetica;fontSize=12;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="140" y="540" width="120" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="113" parent="1" value="Validation Dataset" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#D5E8D4;strokeColor=#82B366;fontFamily=Helvetica;fontSize=12;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="140" y="610" width="120" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="211" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="112" target="111">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="212" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="113" target="111">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="114" parent="1" value="Evaluate Model&lt;br&gt;Complexity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontFamily=Helvetica;fontSize=13;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="630" y="570" width="160" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="213" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="111" target="114">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="115" parent="1" value="• Training Time&lt;br&gt;• Testing Time&lt;br&gt;• Memory Footprint" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=5 5;fillColor=#F8F9FA;strokeColor=#7F8C8D;fontFamily=Helvetica;fontSize=11;align=left;spacingLeft=10;strokeWidth=1.2;" vertex="1">
+          <mxGeometry x="630" y="670" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="214" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7F8C8D;strokeWidth=1.2;dashed=1;endArrow=classic;endFill=1;" edge="1" source="114" target="115">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="116" parent="1" value="Test the Model" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontFamily=Helvetica;fontSize=13;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="365" y="780" width="190" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="215" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="111" target="116">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="117" parent="1" value="Test Dataset" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#D5E8D4;strokeColor=#82B366;fontFamily=Helvetica;fontSize=12;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="140" y="785" width="120" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="216" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="117" target="116">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="118" parent="1" value="Evaluate Model&lt;br&gt;Performance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontFamily=Helvetica;fontSize=13;fontStyle=1;strokeWidth=1.5;" vertex="1">
+          <mxGeometry x="630" y="780" width="160" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="217" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2C3E50;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" source="116" target="118">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="119" parent="1" value="• Accuracy&lt;br&gt;• Precision&lt;br&gt;• F1-Score&lt;br&gt;• Confusion Matrix" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=5 5;fillColor=#F8F9FA;strokeColor=#7F8C8D;fontFamily=Helvetica;fontSize=11;align=left;spacingLeft=10;strokeWidth=1.2;" vertex="1">
+          <mxGeometry x="630" y="880" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="218" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7F8C8D;strokeWidth=1.2;dashed=1;endArrow=classic;endFill=1;" edge="1" source="118" target="119">
+          <mxGeometry x="0" y="0" width="0" height="0" as="geometry" relative="1"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
