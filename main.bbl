@@ -1,20 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{p22}
-{Research Square}.
-Research square: Accelerating the dissemination of research, 2025.
-Accessed: 2 March 2025.
-
-\bibitem{p5}
-Ahmed Elaraby, Walid Hamdy, and Saad Alanazi.
-Classification of citrus diseases using optimization deep learning approach.
-{\em Computational Intelligence and Neuroscience}, 2022:1--10, February 2022.
-
-\bibitem{p19}
-{ResearchGate}.
-Researchgate: Professional network for scientists, 2025.
-Accessed: 2 March 2025.
-
 \bibitem{p1}
 Ahmed~Abdelmoamen Ahmed and Gopireddy~Harshavardhan Reddy.
 A mobile-based system for detecting plant leaf diseases using deep learning.
@@ -24,6 +9,11 @@ A mobile-based system for detecting plant leaf diseases using deep learning.
 T.~Ahmed, A.~Muqit, J.~Datta, M.~Haque, and M.~K. Haque.
 Prevalence and severity of different citrus diseases in sylhet region.
 {\em Journal of Bioscience and Agriculture Research}, 23(2):1957--1968, 2020.
+
+\bibitem{p19}
+{ResearchGate}.
+Researchgate: Professional network for scientists, 2025.
+Accessed: 2 March 2025.
 
 \bibitem{p10}
 R.~Sujatha, Jyotir~Moy Chatterjee, NZ~Jhanjhi, and Sarfraz~Nawaz Brohi.
@@ -45,10 +35,15 @@ Machine learning and deep learning for plant disease classification and
   detection.
 {\em IEEE Access}, 11:114352--114377, 2023.
 
-\bibitem{p20}
-{Hindawi}.
-Hindawi: Open access publisher, 2025.
+\bibitem{p22}
+{Research Square}.
+Research square: Accelerating the dissemination of research, 2025.
 Accessed: 2 March 2025.
+
+\bibitem{p5}
+Ahmed Elaraby, Walid Hamdy, and Saad Alanazi.
+Classification of citrus diseases using optimization deep learning approach.
+{\em Computational Intelligence and Neuroscience}, 2022:1--10, February 2022.
 
 \bibitem{p6}
 Tareq Hasan, Marjuk~Ahmed Siddiki, and Md~Naim Hossain.
@@ -64,6 +59,11 @@ Disease detection of bangladeshi crops using image processing and deep learning
   - a comparative analysis.
 In {\em 2022 2nd International Conference on Intelligent Technologies (CONIT)},
   pages 1--8. IEEE, June 2022.
+
+\bibitem{p20}
+{Hindawi}.
+Hindawi: Open access publisher, 2025.
+Accessed: 2 March 2025.
 
 \bibitem{p7}
 Asad Khattak, Muhammad~Usama Asghar, Ulfat Batool, Muhammad~Zubair Asghar,

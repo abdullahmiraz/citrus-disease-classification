@@ -16,6 +16,19 @@
 \exhyphenpenalty=5000
 \sloppy
 
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.85}
+
+\setlength{\textfloatsep}{6pt plus 1.5pt minus 1pt}
+\setlength{\floatsep}{6pt plus 1.5pt minus 1pt}
+\setlength{\intextsep}{6pt plus 1.5pt minus 1pt}
+\setlength{\dbltextfloatsep}{6pt plus 1.5pt minus 1pt}
+\setlength{\dblfloatsep}{6pt plus 1.5pt minus 1pt}
+
 \begin{document}
 
 \title{Comparative Performance and Computational Complexity Analysis of Pre-Trained Deep Learning Models for Citrus Fruit Disease Classification}
@@ -43,42 +56,42 @@
 \maketitle
 
 \begin{abstract} 
-Citrus fruit diseases cause significant yield loss in commercial orchards, making early and reliable identification essential for farmers. This paper evaluates four pre-trained deep convolutional neural networks (MobileNetV2, InceptionV3, ResNet50, and VGG19) for classifying citrus diseases while examining the computational trade-offs required for field deployment. Training and evaluation were conducted on 1,463 RGB images covering four distinct classes: canker, black spot, greening, and healthy fruit. Across the experimental benchmarks, MobileNetV2 delivered the best overall performance, reaching 97.29\% test accuracy and a 98.54\% F1-score, while requiring only 406.29~s of training time and a compact 9.82~MB memory footprint. InceptionV3 achieved comparable accuracy at 96.59\% but required more memory (22.81~MB). ResNet50 struggled under frozen-base transfer learning, recording a test accuracy of 67.34\% and an F1-score of 58.21\%, whereas VGG19 demanded substantial computational resources (3360.14~s training time and 118.59~MB footprint). These findings confirm that lightweight depthwise separable architectures provide an optimal balance of high diagnostic accuracy and low hardware overhead for mobile and edge-based field diagnosis.
+Citrus fruit diseases are a real threat affecting agricultural productivity and can lead to losses that are hard to recover if they are not detected and managed promptly. This research focuses on using transfer learning and deep learning architectures to classify citrus diseases to reduce agricultural losses and increase crop productivity. The study uses a dataset of 1,463 high-resolution images of citrus fruits and leaves that fall under these classes: canker, black-spot, greening, and healthy. The images were processed for analysis using a pre-trained Neural Network (CNN) such as MobileNetV2, InceptionV3, ResNet50, and VGG19. Transfer learning was used to fine-tune these models on the task of disease classification, which depends on features previously learned from larger datasets. Model performance was evaluated through accuracy, precision, recall, F1 score, and computational efficiency metrics. Out of the four models analyzed in this research study, MobileNetV2 attained the highest accuracy at 97.29\% while ResNet50 did not perform well with an accuracy value of 58.21\%. This emphasizes the importance of the selection of models. This research showcases how transfer learning and deep learning can bring scalability into automated systems for managing citrus diseases providing better accuracy, and quicker diagnosis times.
 \end{abstract}
 
 \section{Introduction}
 
-Agriculture is one of the most vital sectors in Bangladesh as a large part of the economy depends on it directly. Citrus fruit production has seen rapid growth over the past five decades, expanding from 19,163 tonnes in 1973 to 175,325 tonnes in 2022 \cite{p22}. But citrus orchards in regions like Sylhet, Moulvibazar, and Habiganj face persistent problems from diseases such as canker, black spot, scab, and greening (Huanglongbing) \cite{p5,p19}. When infections are not caught early, fruit yield drops and cosmetic blemishes lower market prices \cite{p1,p2,p19}.
-
-Traditionally, disease checking has relied on manual scouting by agricultural officers or farmers, which is slow, labor-intensive, and prone to error over large acreages \cite{p10,p21}. Computer vision gives an automated alternative by processing RGB field images directly \cite{p3,p20}. CNNs have shown strong capability in learning discriminative visual features from plant images, with architectures like AlexNet, VGG16, VGG19, InceptionV3, ResNet, and DenseNet showing high accuracy on botanical datasets \cite{p5}.
+Agriculture is one of the most important factors in Bangladesh as the national economy directly depends on it. Agriculture aims to increase food production and quality while reducing expenses and increasing profit \cite{p1,p2,p19}. Due to population growth and climate change, Bangladesh's agricultural sectors are using novel technology to increase food production. Precision agriculture (PA) is an advanced technology that provides modern techniques for optimizing farm production \cite{p10,p21}. Precision agriculture can be used in many ways to help farmers, such as spotting plant pests, detecting weeds, forecasting crop yields, and identifying plant diseases, among others \cite{p3}. 
+Bangladesh's citrus fruit production increased at an average yearly rate of 5.61\% from 19,163 tonnes in 1973 to 175,325 tonnes in 2022 \cite{p22}. This research was carried out in many citrus farms in Sylhet, Bangladesh from November to December 2014 to investigate the density and severity of diseases among various citrus species. Also an extensive analysis was performed on 560 plants belonging to seventeen different citrus species, but no symptom could be detected. The survey revealed that canker, scab, dieback, and greening were the major diseases in the area \cite{p5,p19}. Early symptoms of plant diseases are important for minimizing risks and reducing losses for farmers. In recent years deep learning has found widespread usage in countless domains including agriculture. For identifying diseases of plants, it is well known and recognized that CNNs are the most efficient deep learning technique \cite{p5}. Some of these architectures including AlexNet, GoogLeNet, VGG16, VGG19, InceptionV3, DenseNet, etc. are used for detecting and identifying plant diseases using CNN. 
 
 \subsection{Context and Background}
 
-In Bangladesh, many rural households depend on seasonal crop and fruit harvests for income \cite{p6,p8}, with over 39,678 acres allocated for crop production nationwide \cite{p7,p6}. Because field environments are vulnerable to sudden microclimatic shifts and pest-borne infections, timely diagnosis is essential to guide targeted spraying and reduce pesticide waste \cite{p19,p20}.
+Being a developing country, crop diseases in Bangladesh negatively impact the economy and food resources \cite{p6,p8}. Specially, Bangladesh is a nation that is greatly dependent on agriculture such as paddy, corn, wheat, etc. The weather of Bangladesh is suitable for crop production but in recent years, crop diseases have reduced food production greatly. Reducing crop diseases is one of the important goals for the Government \cite{p6}. To capture the images, it can be brought together modern electronic devices with high-quality cameras and then use models such as Machine Learning or Deep Learning to process the image \cite{p19,p20}. Early detection of the disease through the identification of diseased areas in plants using advanced digital image processing methodologies could help in treating it effectively as well. In Bangladesh, 39,678 acres were used for crop cultivation and other agricultural purposes based on statistics done in 2019--2020 \cite{p7,p6}.
 
 \subsection{Research Motivation}
 
-Several studies have demonstrated high accuracy using deep CNNs for plant disease detection \cite{p2, p5, p8}. However, many rely on heavy networks (e.g., AlexNet or VGG19) that demand high computational throughput, large GPU memory, and long training times \cite{p5}. In practical agricultural settings, diagnostic software must often run on portable smartphones, microcontroller modules, or drones with constrained battery and memory. Few studies measure runtime latency, storage footprint, or memory consumption alongside accuracy. This paper addresses that gap by testing both diagnostic metrics and computational overhead across four pre-trained networks.
+Deep learning models and supervised machine learning are used in the study that has already been done on the classification of citrus diseases from images \cite{p2, p5, p8}. AlexNet has 8 layers, while VGG-19 has 47 layers, both optimized using Stochastic Gradient Descent with Momentum (SGDM) \cite{p5}. However, it has high computational costs, significant memory requirements, longer training times, and suboptimal performance on small datasets. Also, they did not do a complexity analysis of those architectures. In this paper, a system is proposed that can effectively classify citrus fruit diseases and perform the complexity of the CNN architectures.
 
 \subsection{Objectives and Scope}
-The objectives of this work are:
+The objectives and scope of this work include:
 \begin{itemize}
-    \item Fine-tuning four pre-trained CNN models (MobileNetV2, InceptionV3, ResNet50, and VGG19) using transfer learning on 1,463 citrus fruit images across four distinct conditions.
-    \item Measuring classification metrics (accuracy, precision, recall, F1-score) and hardware-oriented parameters (training time, test inference latency, parameter count, RAM usage).
-    \item Identifying the most viable model architecture for deployment on portable, battery-powered agricultural hardware.
+    \item To determine the effectiveness of different techniques for disease identification, CNN architectures are employed to classify citrus fruit diseases (InceptionV3, MobileNetV2, VGG19, ResNet50).
+    \item Compare the models by doing performance analysis and complexity analysis.
 \end{itemize}
 
 \subsection{Significance of Research}
-This research is done to provide concrete engineering benchmarks that link diagnostic accuracy directly to embedded hardware constraints in citrus disease detection. The data can serve as reference points for building field-ready mobile apps and drone-based scouting systems.
+This research is done using transfer learning approaches to implement pre-trained models to classify citrus fruit diseases. Evaluating the performance metrics and complexity metrics, it will determine the most efficient architectures of the Convolutional Neural Network (CNNs).
 
-The structure of this paper is as follows. Section~\ref{sec:literature_review} presents the literature review. Section~\ref{sec:proposed_methodology} discusses the methodology and model configurations. Section~\ref{sec:result_and_discussion} covers the performance evaluation and complexity benchmarks. Section~\ref{sec:conclusion} presents the conclusions and future directions.
+The structure of this paper is as follows. Section~\ref{sec:literature_review} presents the literature review. In Section~\ref{sec:proposed_methodology}, the proposed methodology is discussed in detail. In Section~\ref{sec:result_and_discussion}, all experiments are conducted and the models are compared using some parameters, also addressing the computational complexity of the models. Section~\ref{sec:conclusion} presents the conclusion.
 
 \section{Literature Review}
 \label{sec:literature_review}
 
-The people of Bangladesh heavily depend on agriculture. According to available statistics, about 87\% of the rural population directly or indirectly depends on agricultural activities \cite{p9}. Because of this, early detection of plant diseases using automated methods has attracted a lot of research attention.
+The people of Bangladesh heavily rely on different types of agriculture. According to statistics, about 87\% of people directly or indirectly depend on agriculture \cite{p9}. Researchers have been studying the methods to detect plant diseases early using Deep Learning. In the following part, some papers have been reviewed related to this work and presented the findings of those papers:
 
-Ahmed and Muqit \cite{p2} designed a deep neural network pipeline for detecting citrus fruit and leaf infections. They used 2,293 images from PlantVillage and got an accuracy of 94.55\%. Balafas et al. \cite{p3} did a comparative study between traditional machine learning models (SVM, Random Forest, SGD) and deeper networks (InceptionV3, VGG16, VGG19). Their results showed that deep features handle noisy backgrounds and different lighting conditions better than shallow hand-crafted descriptors.
+Ahmed and Muqit \cite{p2} designed a Deep Neural Network model for automatically detecting citrus fruit and leaf diseases. The research is centered on employing deep learning techniques in the agricultural sector. This means that it intends to build a framework that can identify illnesses that affect oranges, both fruits and leaves. The proposed model consists of three main components: data acquisition, data pre-processing, and the application of CNN. They used 2293 images from PlantVillage and got an accuracy of 94.55\%. However, they used only 213 images for each class which is not sufficient.
+
+Balafas et al. \cite{p3} presented a detailed comparative analysis of ML and DL to detect plant leaf diseases. In this paper, a comparative study is carried out regarding the intrinsic performance of deep learning (DL) about machine learning (ML), especially towards plant leaf diseases with a focus on citrus trees. To categorize the disorders, they submitted their collected data into three well-known machine learning (ML) models: Support Vector Machine (SVM), Random Forest (RF), and Stochastic Gradient Descent (SGD); moreover, they fed their data into three decision-making (DL) models: InceptionV3, VGG16, and VGG19.
 
 \begin{table*}[t]
 \tabcolsep4pt
@@ -159,76 +172,81 @@ SADCNN-ORBM &
 \label{tab:citrus_comparison}
 \end{table*}
 
-For identifying diseases in citrus, Elaraby et al. \cite{p5} used a deep learning approach and achieved 94.0\% accuracy with AlexNet and VGG19 backbones. Sujatha et al. \cite{p10} tested deep architectures for mobile plant pathology tools and pointed out the need for making diagnostics accessible at the field level. Hasan et al. \cite{p6,p24} applied transfer learning on regional crop datasets from Bangladesh, and they found that using pre-trained weights from ImageNet helped a lot with feature convergence on small target datasets. Table~\ref{tab:citrus_comparison} gives a summary of recent related studies.
+For identifying the diseases in citrus, Elaraby et al. \cite{p5} used a deep learning approach. The problem of optimizing a deep learning strategy to quickly and precisely identify illnesses in citrus crops is discussed in their study. The goal of the project is to use the deep learning models VGG16, VGG19, and InceptionV3 to better classify illnesses, including Black Spot, Canker, Greening, and Melanose.
+
+A mobile-based system for detecting plant leaf diseases using deep learning is written by Sujatha et al. \cite{p10} that mainly addresses the plant diseases present in the agriculture sector and also highlights the diseases that cause significant crop production losses every year, providing a smartphone application that takes advantage of deep learning algorithms to diagnose diseases on plant leaves.
+
+Detection of Bangladeshi-produced plant disease using a transfer learning based on deep neural model is studied by Hasan et al. \cite{p6,p24}. This paper addresses the early detection of plant diseases using a transfer learning approach with deep neural networks, focusing on Bangladeshi crops \cite{p24}. The research classified the plant diseases which are very common in Bangladesh by using pre-trained models such as AlexNet and VGG19. They trained the models using transfer learning on a plant leaf-specific dataset containing 18 categories \cite{p24}.
 
 \section{Proposed Methodology}
 \label{sec:proposed_methodology}
 
-The dataset was carefully collected and preprocessed to make it suitable for image processing. TensorFlow and Keras were used as the main framework for building and training the models. Four CNN architectures were selected for comparison: MobileNetV2, InceptionV3, ResNet50, and VGG19. The detailed workflow is shown in Figure~\ref{fig:research design}.
+The dataset was thoroughly collected and preprocessed for this work to make it appropriate for image processing. Keras and TensorFlow were used for the experiment to utilize their reliable features, enabling developers to develop and deploy deep learning models. Various advanced Convolutional Neural Network architectures were tested, which include VGG19, ResNet50, InceptionV3, and MobileNetV2 due to their high accuracy in image classification and detection. The detailed workflow of this research is given in Figure~\ref{fig:research design}.
 
 \begin{figure}[t]
     \centerline{\includegraphics[width=0.88\columnwidth]{fig1_methodology.png}}
-    \caption{End-to-end methodological framework for citrus fruit disease classification.}
+    \caption{Proposed Methodology}
     \label{fig:research design}
 \end{figure}
 
-\subsection{Dataset Overview and Preparation}
-A dataset of 1,463 high-resolution RGB images has been collected from PlantVillage and Kaggle repositories. These images are sorted into four classes:
+\subsection{Dataset Overview}
+A dataset of 1,463 images has been collected from PlantVillage and Kaggle that holds the four classes: canker, blackspot, greening, and healthy. These are the main diseases of the citrus plant which are kept in different folders. This program applies labels to the images indicating where disease is presented and what type of disease, as well as healthy samples for comparison.
+
+\subsubsection{Dataset Preparation}
+Before implementing the models, the dataset needs to be prepared for using in the design and evaluation of deep learning models for disease classification. The steps of dataset preparation are given below:
 \begin{itemize}
-    \item \textbf{Canker}: Raised, rough lesions on the fruit surface caused by the bacterium \textit{Xanthomonas citri}.
-    \item \textbf{Black Spot}: Dark circular spots caused by the fungus \textit{Phyllosticta citricarpa}.
-    \item \textbf{Greening (HLB)}: Asymmetric yellowing of fruit and leaves, caused by the vector-borne bacterium \textit{Candidatus} Liberibacter.
-    \item \textbf{Healthy}: Normal fruit samples without any visible disease symptoms.
+    \item \textbf{Data Loading}: The dataset is broken down into directories, each of which contains images of a given class of citrus fruit disease. The paths to each of these images are stored along with their labels (type of disease) in a DataFrame, which is convenient for manipulation and analysis. Figure~\ref{fig:class} shows the information about the citrus disease dataset that is used for this research work.
+    \item \textbf{Initial Visualization}: A bar graph has been made representing the image distribution in different disease classes. This visualization helps to see how the dataset is behaving with its balance and has any type of class imbalance issue in the current system, or not. Figure~\ref{fig:sample images} illustrates the sample images of citrus fruit disease dataset.
+    \item \textbf{Data Splitting}: Dataset needs to be split into training, validation, and testing subsets to facilitate the model training. Datasets split up with 80\% for training, 10\% for validation, and 10\% for testing. This split allows the model to have data with which it can learn and validation set where it can be tuned hyper-parameters without ending up over-fitting. Figure~\ref{fig:dataset split} shows a pie chart that illustrates the distribution of the dataset for training, validation, and testing.
 \end{itemize}
 
-\subsubsection{Class Distribution and Partitioning}
-The images were organized into folders by class and the counts are fairly balanced: 358 healthy, 387 greening, 362 black spot, and 356 canker. Figure~\ref{fig:class} shows this distribution and Figure~\ref{fig:sample images} displays some sample images from each class.
-
 \begin{figure}[t]
-    \centerline{\includegraphics[width=0.88\columnwidth]{fig2_class_distribution.png}}
-    \caption{Distribution of image samples across the four citrus fruit classes.}
+    \centerline{\includegraphics[width=0.82\columnwidth]{fig2_class_distribution.png}}
+    \caption{Number of Images in Each Class}
     \label{fig:class}
 \end{figure}
 
 \begin{figure}[t]
-    \centerline{\includegraphics[width=0.88\columnwidth]{fig3_sample_images.png}}
-    \caption{Representative sample images from the experimental citrus dataset.}
+    \centerline{\includegraphics[width=0.82\columnwidth]{fig3_sample_images.png}}
+    \caption{Sample Images of Dataset}
     \label{fig:sample images}
 \end{figure}
 
-The dataset was split into 80\% for training (1,170 images), 10\% for validation (146 images), and 10\% for testing (147 images). This split is shown in Figure~\ref{fig:dataset split}. The test set was kept completely separate and only used after training was finished.
-
 \begin{figure}[t]
-    \centerline{\includegraphics[width=0.72\columnwidth]{fig4_dataset_split.png}}
-    \caption{Dataset partitioning into training (80\%), validation (10\%), and test (10\%) subsets.}
+    \centerline{\includegraphics[width=0.68\columnwidth]{fig4_dataset_split.png}}
+    \caption{Dataset Distribution for Training, Validation and Testing}
     \label{fig:dataset split}
 \end{figure}
 
-\subsubsection{Data Pre-Processing and Augmentation}
-To prevent overfitting and make the models work better with different camera angles and lighting conditions, the following augmentations were applied during training:
+\subsubsection{Dataset Pre-processing}
+A special function has been designed that handles the pre-processing of training, validation, and testing datasets. The first step of pre-processing is image augmentation. Image augmentation has been done following these methods:
 \begin{itemize}
-    \item Rescaling pixel values into the range $[0, 1]$.
-    \item Random rotation up to $\pm 20^\circ$.
-    \item Horizontal and vertical translation up to 20\%.
-    \item Random shearing of images.
-    \item Random zoom up to 20\%.
-    \item Random horizontal flipping.
+    \item \textbf{Rescaling}: The pixel values of the images are scaled into [0, 1].
+    \item \textbf{Rotation}: Rotate the countered image any random degree between [$-20^\circ$, $20^\circ$].
+    \item \textbf{Translation}: The image changes are performed at a random maximum of 20\% pixels horizontally and vertically.
+    \item \textbf{Shearing}: Random sheared the images.
+    \item \textbf{Zoom Range}: Random zoom ranges to the images.
+    \item \textbf{Horizontal Flipping}: Images are flipped randomly in the horizontal (left, right) direction. Images are loaded using a batch size of 32, and all the images from the dataset are resized into $224 \times 224$ pixels to ensure a fixed size for models. The test data is not shuffled to maintain the order of the images, which is important for evaluation purposes.
 \end{itemize}
-All images were resized to $224 \times 224 \times 3$ pixels and loaded in mini-batches of 32.
 
-\subsection{Transfer Learning Framework}
+\subsection{Transfer Learning}
+In deep learning, transfer learning is a method where the model trained for one task is used as a starting point in order to solve another related or similar problem \cite{p25}. This speeds learning and boosts performance on a second, possibly under-sampled issue by capitalizing the information obtained from a job. Transfer learning can be used for CNN's pre-trained models, feature extraction, and fine-tuning.
 
-In deep learning, transfer learning is a method where a model trained for one task is used as a starting point to solve another related problem \cite{p25,p24}. This approach speeds up learning and gives better results even on small datasets because the model already knows how to extract useful features from images. Transfer learning allows using pre-trained models which show good accuracy even on medium-sized datasets. Figure~\ref{fig:pretrained} shows how this process works.
+\subsubsection{Pre-Trained Models}
+Transfer learning allows using CNN's pre-trained models which show better accuracy, even on medium-sized datasets \cite{p24}. As these models are already trained on benchmark datasets, they cost less and require less computational power. It also reduces training time and provides high accuracy.
 
 \begin{figure}[t]
     \centerline{\includegraphics[width=0.72\columnwidth]{fig5_pretrained_workflow.png}}
-    \caption{Flowchart of the transfer learning fine-tuning pipeline.}
+    \caption{Flowchart of Pre-Trained Models}
     \label{fig:pretrained}
 \end{figure}
 
-Four pre-trained models were adapted for the four-class citrus disease task. The base convolutional feature extractors were frozen to retain ImageNet weights, and custom top classification heads were added in each case:
+Figure~\ref{fig:pretrained} presents the workflow flowchart of pre-trained models for better understanding.
+
+Four pre-trained models have been used in this research: VGG19, MobileNetV2, InceptionV3, ResNet50. The working process of the pre-trained model is almost the same. After loading the base models, custom layers need to be added for this task. Then the models are created by giving input and output layers.
+
 \begin{itemize}
-    \item \textbf{VGG19}: For the VGG19 backbone, the pre-trained feature extractor consists of 16 convolutional layers using uniform $3 \times 3$ filters across 5 pooling blocks \cite{p38,p39,p40}. The base weights were kept non-trainable during training. A 40\% Dropout layer was added right after the base \cite{p41,p42,p43}, followed by a Flatten layer \cite{p44}, a Dense layer with 512 ReLU units, a second Dropout layer (20\%), and a final 4-unit Softmax classification layer \cite{p45}. Table~\ref{tab:model_architecture} summarizes the full parameter breakdown.
+    \item \textbf{VGG19}: VGG19 model is famous for its simplicity and consistent architecture. It contains 19 trainable layers, deeper than many previous models. The network consists mainly of $3 \times 3$ convolutions, which is a quite new field since larger filters were still better than those at the time. First, the VGG19 model is pre-trained on the ImageNet dataset \cite{p38} but without the top classification, which is utilized as the base model to enable robust feature extraction \cite{p39, p40}. The layers of the base model are frozen, which prevents them from being trained further and enables them to use their learned features. Then a Dropout layer with a dropout rate of 40\% is applied to prevent overfitting by setting a fraction of the input units to zero at random during training \cite{p41,p42,p43}. The output is then transformed into a one-dimensional vector suitable for the fully connected layers using a flattened layer \cite{p44}. A dense layer with 512 units and ReLU activation is added as the second fully connected layer. Another Dropout layer, with a dropout rate of 20\%, follows the second dense layer. Finally, the output layer is a dense layer with 4 units and a softmax activation function, which gives the class probabilities for the classification task \cite{p45}. Table~\ref{tab:model_architecture} presents the architecture of VGG19 in detail.
 
 \begin{table}[htbp]
 \tabcolsep4pt
@@ -252,7 +270,7 @@ dense\_2 (Dense, Softmax) & (None, 4) & 2,052 \\
 \label{tab:model_architecture}
 \end{table}
 
-    \item \textbf{MobileNetV2}: As a lightweight model for edge deployment, MobileNetV2 relies on depthwise separable convolutions and inverted residual bottlenecks with linear activation units \cite{p37}. Freezing the base network keeps the low-level visual representations intact while significantly cutting down the number of trainable operations. The custom top head consists of 40\% dropout, a flatten layer, 512 dense ReLU units, 20\% dropout, and a 4-class softmax layer. Table~\ref{tab:mobilenetv2} details the layer architecture.
+    \item \textbf{MobileNetV2}: MobileNetV2 Model (with pre-trained weights on ImageNet) is implemented and suited for plant classification using TensorFlow's Keras API \cite{p37}. By freezing each of the layers belonging to the base model, it conserves learned features from this original network while replacing only the final layers for task-specific customization. Dropout regularization and dense layers help in feature extraction and classification with an input image size of $224 \times 224$ pixels in RGB. The model is built with the Adam optimizer trained over some epochs and tested for its accuracy in a test set. Table~\ref{tab:mobilenetv2} presents the architecture of MobileNetV2 in detail.
 
 \begin{table}[htbp]
 \tabcolsep4pt
@@ -276,7 +294,7 @@ dense\_2 (Dense, Softmax) & (None, 4) & 2,052 \\
 \label{tab:mobilenetv2}
 \end{table}
 
-    \item \textbf{InceptionV3}: Multi-scale spatial features are processed in InceptionV3 by factorized convolutions and asymmetric filtering inside parallel branches. The top classification layers were replaced with a flatten operation, 512 dense ReLU units, 20\% dropout regularization, and a 4-unit softmax output. Table~\ref{tab:inceptionv3} presents the complete layer configuration.
+    \item \textbf{InceptionV3}: InceptionV3 is a CNN architecture for high performance image classification. The study uses InceptionV3, pre-trained on ImageNet, as the base model, with its top classification layers removed to facilitate plant-specific disease classification. The flattened output of the model is then fed to two dense layers with ReLU activation and dropout for regularization before classifying it using a softmax layer. Table~\ref{tab:inceptionv3} presents the architecture of InceptionV3 in detail.
 
 \begin{table}[htbp]
 \tabcolsep4pt
@@ -299,7 +317,7 @@ dense\_2 (Dense, Softmax) & (None, 4) & 2,052 \\
 \label{tab:inceptionv3}
 \end{table}
 
-    \item \textbf{ResNet50}: Residual shortcut connections are the core element of ResNet50, enabling direct gradient propagation across 50 layers to mitigate vanishing gradients. With the pre-trained convolutional base frozen, the classification head was built using a flatten layer, a 512-unit dense ReLU layer, 50\% dropout, and a 4-class softmax output layer. Adam optimization was configured at a learning rate of 0.0001. Table~\ref{tab:resnet50} outlines the resulting parameter distribution.
+    \item \textbf{ResNet50}: The ResNet50 model is imported from TensorFlow Keras applications. This model has been configured to not include the top classification layers and it is difficult to train a very deep neural network on limited amounts of data. Keeping the base model as non-trainable prevents over-fitting when fine-tuning in small data. These custom top layers are a flattened layer and a dense layer after it. A dropout of 0.5 and an output that outputs in the softmax function for 4 classes. Adam optimizer is used with a learning rate of 0.0001, and the categorical cross-entropy of losses is considered to evaluate computing performance for this model. The model is then scored on a test set. Table~\ref{tab:resnet50} presents the architecture of ResNet50 in detail.
 
 \begin{table}[htbp]
 \tabcolsep4pt
@@ -324,26 +342,40 @@ dense\_2 (Dense, Softmax) & (None, 4) & 2,052 \\
 
 \end{itemize}
 
-\subsubsection{Framework Implementation}
-All experiments were done in Python using TensorFlow and Keras. TensorFlow is a well-known open-source machine learning framework developed by the Google Brain Team. It provides a good environment for building and deploying machine learning models, and works well on CPUs, GPUs, and TPUs. The end-to-end framework, from data loading to GPU training to model export for mobile deployment (TensorFlow Lite, TensorFlow Serving), is shown in Figure~\ref{fig:tensorflow}.
+\subsubsection{TensorFlow}
+TensorFlow is a well-known open-source machine learning framework developed by the Google Brain Team. It offers a holistic environment to create and implement machine learning models. TF is built for production on environments like CPUs, GPUs, and TPUs, making it suitable for developers or researchers. Due to comprehensive support for both production and research by TensorFlow, it is the preferred platform selected among other models for a multitude of machine learning as well as artificial intelligence applications. The architecture of TensorFlow is given in Figure~\ref{fig:tensorflow}.
 
 \begin{figure}[t]
     \centerline{\includegraphics[width=0.88\columnwidth]{fig6_tensorflow_architecture.png}}
-    \caption{Framework architecture covering training, serialization, and deployment pipelines.}
+    \caption{Architecture of TensorFlow}
     \label{fig:tensorflow}
 \end{figure}
 
-\subsection{Optimization and Training Configuration}
-All four models were trained using the Adam optimizer, which is an adaptive learning rate algorithm that combines methods from both AdaGrad and RMSProp. The learning rate was set to $\eta = 0.0001$. The loss function used was categorical cross-entropy, which is suitable for multi-class classification problems:
-\begin{equation}
-    \mathcal{L}_{CCE} = -\sum_{i=1}^{N} \sum_{c=1}^{C} y_{i,c} \log(\hat{y}_{i,c})
-\end{equation}
-where $N$ is the mini-batch size, $C=4$ is the number of classes, $y_{i,c} \in \{0, 1\}$ is the true label, and $\hat{y}_{i,c}$ is the predicted probability for class $c$. The models were trained for 50 epochs and the best weights were saved based on validation loss.
+Figure~\ref{fig:tensorflow} provides a diagram of the components and connections for both training and deployment of TensorFlow.
 
-\subsection{Evaluation Metrics}
+\begin{itemize}
+    \item \textbf{Keras}: Keras is a high-level library developed in Python for building ML models using TensorFlow. It serves as a high level API for working with deep learning models to be used by machine learning frameworks such as TensorFlow. Keras allows users to experiment with all sorts of different neural network architectures quickly and prototype rapidly.
+\end{itemize}
+
+\subsection{Optimization Process}
+In machine learning and deep learning, the process of optimization refers to adjusting a model's parameters such that it satisfies a few conditions, which are represented via loss function. The optimization of this research has followed the steps below:
+\begin{itemize}
+    \item \textbf{Adam Optimizer}: The models are trained using Adam optimizer, which is an adaptive learning rate optimization algorithm that uses methods from both AdaGrad and RMSProp.
+    \item \textbf{Learning Rate}: This is the rate which will determine how big of a step is taken for each iteration when moving toward the minimum point in the loss function ($\eta = 0.0001$).
+    \item \textbf{Loss Function}: Categorical cross-entropy loss function is used here. This loss function is ideally used for multi-class classification problems where the target variable can be inferred from a categorical/dependent column:
+    \begin{equation}
+        \mathcal{L}_{CCE} = -\sum_{i=1}^{N} \sum_{c=1}^{C} y_{i,c} \log(\hat{y}_{i,c})
+    \end{equation}
+    where $N$ is the mini-batch size, $C=4$ is the number of target classes, $y_{i,c} \in \{0, 1\}$ is the true label, and $\hat{y}_{i,c}$ is the model predicted probability for class $c$.
+    \item \textbf{Training Process}: The model is trained using the fit method, which takes the training data generator, the number of epochs (50), and the validation data generator. The training process updates the weights of the trainable layers to minimize the loss function.
+    \item \textbf{Layer Freezing}: The base layer of each model layer is frozen to keep the pre-trained weights as it is and train only the newly added dense and dropout layers.
+\end{itemize}
+
+\subsection{Model Evaluation}
+Model evaluation is a process that provides the performance of a trained model onto unseen data. The purpose is to understand how well the model generalizes into new, unknown data. Models have been evaluated using two methods: performance analysis and complexity analysis.
 
 \subsubsection{Performance Metrics}
-For evaluating how well the models performed, some standard parameters were used. The metrics are as follows:
+For the proposed model, some parameters are used to evaluate the performances and compare their results. The metrics are used as follows:
 \begin{equation}
     \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
     \label{eq:accuracy}
@@ -362,17 +394,19 @@ For evaluating how well the models performed, some standard parameters were used
 \end{equation}
 where $TP$ = True Positive, $TN$ = True Negative, $FP$ = False Positive, and $FN$ = False Negative.
 
-\subsubsection{Computational Complexity Metrics}
-The complexity analysis of the models was done by measuring four things: total training time in seconds, inference time on the 147 test images in seconds, trainable and non-trainable parameter count, and how much memory each model uses in MB.
+\subsubsection{Complexity Metrics}
+The complexity analysis of a model involves evaluating its computational and memory requirements, which is essential for understanding its scalability and feasibility for deployment. The metrics of complexity analysis are training time, required memory, and inference time.
+
+\subsection{Research Tools}
+The research work is fully conducted on Google Colab, so there is no need for external devices for this work. Additionally, the cloud-based nature of Colab allows for scalable computations and flexibility in handling different project requirements, ensuring there are no obstacles or limitations during the research process. Transfer learning approach has been implemented using Python Programming Language.
 
 \section{Result and Discussion}
 \label{sec:result_and_discussion}
 
-This section gives a detailed discussion of the results from the experiments. The models are compared using both performance analysis and complexity analysis.
+This part includes a detailed discussion of the results and findings throughout the research. The most effective model will be evaluated using two analyses: Performance analysis and Complexity analysis.
 
-\subsection{Performance Evaluation}
-
-The performance analysis was done using precision, recall, and F1-score on the 147-image test set. In this case, MobileNetV2 showed the highest precision at 98.56\%, recall at 98.54\%, and F1-score at 98.54\%. InceptionV3 was close behind with 97.21\% precision, 97.30\% recall, and 97.19\% F1-score. VGG19 got 84.82\% precision and 81.17\% F1-score. On the other hand, ResNet50 showed the lowest performance in all metrics, with only 58.21\% F1-score. Table~\ref{tab:performance_metrics} presents these results.
+\subsection{Performance Analysis}
+The performance analysis was done using metrics such as precision, accuracy, recall, and confusion matrix. The precision of VGG19, ResNet50, InceptionV3, MobileNetV2 was 84.82\%, 66.66\%, 97.21\%, 98.56\%. In this case, MobileNetV2 showed the highest precision and ResNet50 showed the lowest precision. In this way, MobileNetV2 achieved an F1 score of 98.54\% which is the highest F1 score among all the models. This remains the same for the recall percentage. On the contrary, ResNet50 achieved the lowest value in all performance metrics in this experiment. InceptionV3 showed satisfactory value for all metrics. Table~\ref{tab:performance_metrics} presents performance metrics for four pre-trained models: MobileNetV2, InceptionV3, ResNet50, and VGG19, evaluating Precision, Recall, and F1 Score as percentages.
 
 \begin{table}[htbp]
 \tabcolsep4pt
@@ -389,8 +423,8 @@ F1-Score (\%) & 98.54 & 97.19 & 58.21 & 81.17 \\
 \label{tab:performance_metrics}
 \end{table}
 
-\subsubsection{Accuracy and Loss Analysis}
-Each model's accuracy and loss during training, validation, and testing have been compared. High accuracy means the model is learning the data well, while low loss means good performance. If the training loss is very low but the validation loss stays high, it can indicate overfitting where the model is learning noise instead of real patterns. The training accuracy of MobileNetV2 and InceptionV3 is better than the other models, and this remains the same for validation and test accuracy. MobileNetV2 produced the lowest test loss at 5.29\%. ResNet50 had the highest loss value at 76.16\%, which suggests that the residual blocks may need deeper layer unfreezing or a different learning rate to work well on this particular dataset. Table~\ref{tab:evaluation_accuracy_loss} presents these numbers.
+\subsubsection{Accuracy Analysis}
+Each model's accuracy and loss during testing, training, and validation, have been evaluated to compare their performances. High accuracy indicates successful data capture, while low training loss indicates good performance and shallow loss may indicate overfitting, where the model learns noise rather than patterns. The training accuracy of MobileNetV2 and InceptionV3 is superior to other models. This remains the same for validation and test accuracy. MobileNetV2 produced the lowest loss value. On the other hand, ResNet50 has the highest loss value among all models. Table~\ref{tab:evaluation_accuracy_loss} presents evaluation metrics for models, including MobileNetV2, InceptionV3, ResNet50, and VGG19, training, validation, and testing phases, including accuracy and loss.
 
 \begin{table}[htbp]
 \tabcolsep2.5pt
@@ -414,8 +448,8 @@ VGG19      & 75.10 & 60.10 & 87.75 & 32.46 & 88.44 & 37.76 \\
 \label{tab:evaluation_accuracy_loss}
 \end{table}
 
-\subsubsection{Confusion Matrix Analysis}
-The confusion matrix gives an overview of how each model classified the test samples, which helps in seeing where the models made mistakes. Figure~\ref{fig:confusion matrix} shows the confusion matrices for all four models on the 147 test images. MobileNetV2 and InceptionV3 classified every greening sample correctly and made very few errors on the other classes. ResNet50 had noticeable misclassifications between healthy and diseased fruit.
+\subsubsection{Confusion Matrix}
+This matrix provides a comprehensive overview of the accuracy, precision, recall, and F1 score used by each model, which can be useful in determining the relative strengths and weaknesses of the models, particularly concerning unbalanced datasets.
 
 \begin{figure}[t]
     \centerline{\includegraphics[width=0.88\columnwidth]{fig7_confusion_matrices.png}}
@@ -423,9 +457,10 @@ The confusion matrix gives an overview of how each model classified the test sam
     \label{fig:confusion matrix}
 \end{figure}
 
-\subsection{Computational Complexity Analysis}
+Figure~\ref{fig:confusion matrix} illustrates the confusion matrix for the MobileNetV2, VGG19, InceptionV3, and ResNet50 which shows the performance in classifying four types of fruit conditions: blackspot, canker, greening, and healthy fruit.
 
-The complexity analysis is an important factor in evaluating these models, especially for deployment on devices with limited resources. Training time, inference time, and memory usage were measured for each model. Table~\ref{tab:complexity_metrics} compares these values.
+\subsection{Complexity Analysis}
+The complexity analysis is an important factor in evaluating the models. Training time, inference time, and memory usage are evaluated for each model to compare their performance.
 
 \begin{table}[htbp]
 \tabcolsep4pt
@@ -443,7 +478,7 @@ Memory Footprint (MB) & 9.82 & 22.81 & 34.28 & 118.59 \\
 \label{tab:complexity_metrics}
 \end{table}
 
-MobileNetV2 is the most efficient model with the shortest training time of 406.29~s and the lowest memory usage of 9.82~MB. Compared to VGG19, which took 3360.14~s to train and used 118.59~MB of memory, MobileNetV2 reduced training time by about 88\% and memory usage by around 91.7\%. The inference times were relatively close across all four models, ranging between 80.34~s and 85.73~s for the 147 test images, with VGG19 slightly faster at 80.34~s. Figure~\ref{fig:performance metrics} shows a graphical comparison of all the metrics.
+Table~\ref{tab:complexity_metrics} compares four pre-trained models: MobileNetV2, InceptionV3, ResNet50, and VGG19 based on training time, inference time, and memory usage. MobileNetV2 is the most efficient with the shortest training time of 406.29 seconds and the lowest memory usage of 9.82 MB, while VGG19 has the highest training time of 3360.14 seconds and the highest memory usage of 118.59 MB. Inference times are relatively close across all models, with VGG19 slightly leading at 80.34 seconds.
 
 \begin{figure}[t]
     \centerline{\includegraphics[width=0.88\columnwidth]{fig8_performance_metrics.png}}
@@ -451,29 +486,25 @@ MobileNetV2 is the most efficient model with the shortest training time of 406.2
     \label{fig:performance metrics}
 \end{figure}
 
+Figure~\ref{fig:performance metrics} shows that MobileNetV2 had the highest performance in the above metric with a precision of 98.56\%, 98.54\% for recall, and 98.54\% in the F1 score hence highly efficient in the classification of the disease.
+
 \subsection{Comparative Discussion}
+This section will give a comparative discussion of used models during citrus fruit disease diagnosis using their performance and complexity metrics. In this work, the models of four pre-trained models, namely VGG19, ResNet50, InceptionV3, and MobileNetV2, have been evaluated on the citrus fruit diseases dataset, and the goal was to select the best model based on performance and complexity. The performance used to evaluate the models was precision, recall, F1-score, and accuracy.
 
-This section gives a comparative discussion of the models used for citrus fruit disease diagnosis based on their performance and complexity metrics. In this work, the goal was to find the best model by looking at both accuracy and computational cost. The performance was evaluated using precision, recall, F1-score, and accuracy.
+MobileNetV2 and InceptionV3 have quite large training accuracies as well as low training loss, and seem to be tending toward generalization; in contrast, the accuracies of ResNet50 were significantly lower indicating sub-optimal learning and generalization properties.
 
-MobileNetV2 and InceptionV3 both had high training accuracy and low loss, showing good generalization. ResNet50 had much lower accuracy, which indicates that it did not learn the features well with frozen base layers. VGG19 showed decent results but was very heavy in terms of computation and memory.
-
-After comparing all the results, MobileNetV2 turned out to be the best choice because it gives the highest accuracy, uses the least memory, trains the fastest, and is lightweight enough to be deployed on smartphones, portable scanners, and drone cameras for real-time disease monitoring in the field.
+After comparing all the analyses, it is found that MobileNetV2 showed the best performance in case of accuracy, memory usage, training time, and testing time. Also, the lightweight architecture makes it suitable to deploy on real-time applications.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-This study compared four pre-trained deep learning architectures (MobileNetV2, InceptionV3, ResNet50, and VGG19) on a four-class citrus fruit disease dataset of 1,463 images. Experimental results showed that MobileNetV2 achieved the strongest overall balance of classification and operational efficiency, recording 97.29\% test accuracy, 98.54\% F1-score, a rapid 406.29~s training duration, and a minimal 9.82~MB memory footprint. InceptionV3 offered competitive accuracy at 96.59\% but incurred higher memory demands (22.81~MB). In contrast, ResNet50 showed lower classification efficacy (67.34\% test accuracy, 58.21\% F1-score) under frozen-base fine-tuning, while VGG19 required substantial training time (3360.14~s) and memory (118.59~MB). These results demonstrate that lightweight models using depthwise separable convolutions are well suited for direct deployment on mobile devices, portable field scanners, and drone platforms for automated citrus crop monitoring.
+This research work highlights the importance of transfer learning with four pre-trained models such as MobileNetV2, InceptionV3, ResNet50, and VGG19 while detecting citrus fruit diseases. The study concluded that MobileNetV2 is the best pre-trained model yielding high accuracy for identifying citrus fruit disease from other models (VGG19, ResNet50, and InceptionV3). It fetches the highest precision, recall, and F1 score with the dataset. Thus it has made an excellent training and testing accuracy as well. InceptionV3 closely finished behind the strong numbers but ResNet50 was far back. VGG19 resulted in a decent performance. In the end, MobileNetV2 wins with the highest value for the problem set, hitting both high accuracy and efficiency thus it is most effective in terms of performance and complexity.
 
 \subsection{Limitations}
-This study has some limitations. The main one is that the dataset has only 1,463 images, which is relatively small for training deep learning models. Also, the images come from only two sources (PlantVillage and Kaggle), so the models were not tested under real field conditions with variable lighting, partial occlusions, or overlapping symptoms that occur in actual orchards.
+This study has several limitations. First, the proposed models were evaluated using only a single citrus fruit dataset consisting of 1,463 images, which is relatively small for training and evaluating deep learning models. Future research should therefore focus on expanding the dataset and integrating a broader range of citrus disease categories to develop more robust and comprehensive disease classification models.
 
 \subsection{Future Scope}
-Future work can explore several directions:
-\begin{itemize}
-    \item Testing bio-inspired optimization algorithms like Grey Wolf Optimizer (GWO) or Particle Swarm Optimization (PSO) for automated hyperparameter tuning.
-    \item Building hybrid models that combine the strengths of different architectures to get better accuracy and robustness.
-    \item Adding explainable AI techniques such as Grad-CAM to highlight the disease regions in the image, which would help agricultural workers understand and trust the model predictions.
-\end{itemize}
+The implementation of bio-inspired models, e.g. GWO (Grey Wolf Optimizer), Particle Swarm Optimizer (PSO), etc. can be a new direction in future work. In addition, building hybrid models merging the best of different architectures could be beneficial to enhance accuracy and robustness. This would be better solved by including explainable AI techniques, as these make it easier to comprehend the model's decision process and lead to trust and adoption in practice.
 
 \bibliographystyle{ijcaArticle}
 \bibliography{references}
