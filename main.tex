@@ -410,13 +410,16 @@ The complexity analysis of a model involves evaluating its computational and mem
 \subsection{Research Tools}
 The research work is fully conducted on Google Colab, so there is no need for external devices for this work. Additionally, the cloud-based nature of Colab allows for scalable computations and flexibility in handling different project requirements, ensuring there are no obstacles or limitations during the research process. Transfer learning approach has been implemented using Python Programming Language.
 
+
+
+
 \section{Result and Discussion}
 \label{sec:result_and_discussion}
 
-This part includes a detailed discussion of the results and findings throughout the research. The most effective model will be evaluated using two analyses: Performance analysis and Complexity analysis.
+This part includes detailed discussion of the results and their findings throughout this research. The most effective model will be evaluated using two analyses: Performance analysis and Complexity analysis.
 
 \subsection{Performance Analysis}
-The performance analysis was done using metrics such as precision, accuracy, recall, and confusion matrix. The precision of VGG19, ResNet50, InceptionV3, MobileNetV2 was 84.82\%, 66.66\%, 97.21\%, 98.56\%. In this case, MobileNetV2 showed the highest precision and ResNet50 showed the lowest precision. In this way, MobileNetV2 achieved an F1 score of 98.54\% which is the highest F1 score among all the models. This remains the same for the recall percentage. On the contrary, ResNet50 achieved the lowest value in all performance metrics in this experiment. InceptionV3 showed satisfactory value for all metrics. Table~\ref{tab:performance_metrics} presents performance metrics for four pre-trained models: MobileNetV2, InceptionV3, ResNet50, and VGG19, evaluating Precision, Recall, and F1 Score as percentages.
+The performance analysis was done using metrics such as precision, accuracy, recall, and confusion matrix. The precision of VGG19, ResNet50, InceptionV3, MobileNetV2 was 84.82\%, 66.66\%, 97.21\%, 98.56\%. In this case, MobileNetV2 showed the highest precision and ResNet50 showed the lowest precision. In this way, MobileNetV2 achieved an F1 score of 98.54\% which is the highest F1 score among all the models. This remains the same for the recall percentage. On the contrary, ResNet50 achieved the lowest value in all performance metrics in this experiment. InceptionV3 showed satisfactory value for all metrics. Table~\ref{tab:performance_metrics} presents performance metrics for four pre-trained models: MobileNetV2, InceptionV3, ResNet50, and VGG19, evaluating the Precision, Recall, and F1 Score as percentages.
 
 \begin{table}[htbp]
 \tabcolsep4pt
@@ -434,7 +437,7 @@ F1-Score (\%) & 98.54 & 97.19 & 58.21 & 81.17 \\
 \end{table}
 
 \subsubsection{Accuracy Analysis}
-Each model's accuracy and loss during testing, training, and validation, have been evaluated to compare their performances. High accuracy indicates successful data capture, while low training loss indicates good performance and shallow loss may indicate overfitting, where the model learns noise rather than patterns. The training accuracy of MobileNetV2 and InceptionV3 is superior to other models. This remains the same for validation and test accuracy. MobileNetV2 produced the lowest loss value. On the other hand, ResNet50 has the highest loss value among all models. Table~\ref{tab:evaluation_accuracy_loss} presents evaluation metrics for models, including MobileNetV2, InceptionV3, ResNet50, and VGG19, training, validation, and testing phases, including accuracy and loss.
+Each model's accuracy and loss during testing, training, and validation, has been evaluated so that comparison could be done based on the performance. High accuracy indicates successful data capture, however low training loss indicates good performance and shallow loss may indicate overfitting, where the model learns noise rather than their patterns. The training accuracy of MobileNetV2 and InceptionV3 is superior to other models. This remains the same for validation and test accuracy. MobileNetV2 produced the lowest loss value. On the other hand, ResNet50 has the highest loss value among all models. Table~\ref{tab:evaluation_accuracy_loss} presents evaluation metrics for models, including MobileNetV2, InceptionV3, ResNet50, and VGG19, training, validation, and testing phases, including accuracy and loss.
 
 \begin{table}[htbp]
 \tabcolsep2.5pt
@@ -459,7 +462,7 @@ VGG19      & 75.10 & 60.10 & 87.75 & 32.46 & 88.44 & 37.76 \\
 \end{table}
 
 \subsubsection{Confusion Matrix}
-This matrix provides a comprehensive overview of the accuracy, precision, recall, and F1 score used by each model, which can be useful in determining the relative strengths and weaknesses of the models, particularly concerning unbalanced datasets.
+This matrix provides an extensive overview of the accuracy, precision, recall, and F1 score used by each model, which can be useful in determining the relative strengths and weaknesses of these models, particularly concerning unbalanced datasets.
 
 \begin{figure}[t]
     \centerline{\includegraphics[width=0.88\columnwidth]{fig7_confusion_matrices.png}}
@@ -470,7 +473,7 @@ This matrix provides a comprehensive overview of the accuracy, precision, recall
 Figure~\ref{fig:confusion matrix} illustrates the confusion matrix for the MobileNetV2, VGG19, InceptionV3, and ResNet50 which shows the performance in classifying four types of fruit conditions: blackspot, canker, greening, and healthy fruit.
 
 \subsection{Complexity Analysis}
-The complexity analysis is an important factor in evaluating the models. Training time, inference time, and memory usage are evaluated for each model to compare their performance.
+The complexity analysis is an important factor in evaluating the models. Training time, inference time, and memory usage are evaluated for each of the model to compare their performance.
 
 \begin{table}[htbp]
 \tabcolsep4pt
@@ -488,7 +491,7 @@ Memory Footprint (MB) & 9.82 & 22.81 & 34.28 & 118.59 \\
 \label{tab:complexity_metrics}
 \end{table}
 
-Table~\ref{tab:complexity_metrics} compares four pre-trained models: MobileNetV2, InceptionV3, ResNet50, and VGG19 based on training time, inference time, and memory usage. MobileNetV2 is the most efficient with the shortest training time of 406.29 seconds and the lowest memory usage of 9.82 MB, while VGG19 has the highest training time of 3360.14 seconds and the highest memory usage of 118.59 MB. Inference times are relatively close across all models, with VGG19 slightly leading at 80.34 seconds.
+Table~\ref{tab:complexity_metrics} compares four pre-trained models: MobileNetV2, InceptionV3, ResNet50, and VGG19 based on training time, inference time, and memory usage. MobileNetV2 is the most efficient with the shortest training time of 406.29 seconds and the lowest memory usage of 9.82 MB, while VGG19 has the highest training time of 3360.14 seconds and with the highest memory usage of 118.59 MB. Inference times are relatively close across all models, with VGG19 slightly leading at 80.34 seconds.
 
 \begin{figure}[t]
     \centerline{\includegraphics[width=0.88\columnwidth]{fig8_performance_metrics.png}}
@@ -499,19 +502,19 @@ Table~\ref{tab:complexity_metrics} compares four pre-trained models: MobileNetV2
 Figure~\ref{fig:performance metrics} shows that MobileNetV2 had the highest performance in the above metric with a precision of 98.56\%, 98.54\% for recall, and 98.54\% in the F1 score hence highly efficient in the classification of the disease.
 
 \subsection{Comparative Discussion}
-This section will give a comparative discussion of used models during citrus fruit disease diagnosis using their performance and complexity metrics. In this work, the models of four pre-trained models, namely VGG19, ResNet50, InceptionV3, and MobileNetV2, have been evaluated on the citrus fruit diseases dataset, and the goal was to select the best model based on performance and complexity. The performance used to evaluate the models was precision, recall, F1-score, and accuracy.
+This section will give a comparative discussion of models which are used during citrus fruit disease diagnosis using their performance and complexity metrics. In this work, the models of four pre-trained models, namely VGG19, ResNet50, InceptionV3, and MobileNetV2, have been evaluated on the citrus fruit diseases dataset, and the goal was to be able to select the best model based on performance and complexity. The performance used to evaluate the models was precision, recall, F1-score, and accuracy.
 
-MobileNetV2 and InceptionV3 have quite large training accuracies as well as low training loss, and seem to be tending toward generalization; in contrast, the accuracies of ResNet50 were significantly lower indicating sub-optimal learning and generalization properties.
+MobileNetV2 and InceptionV3 have quite large training accuracies as well as low training loss, and it seem to be tending toward generalization; in the contrary, the accuracies of ResNet50 were significantly lower indicating sub-optimal learning and generalization properties.
 
-After comparing all the analyses, it is found that MobileNetV2 showed the best performance in case of accuracy, memory usage, training time, and testing time. Also, the lightweight architecture makes it suitable to deploy on real-time applications.
+After comparing all the analyses, it's found that MobileNetV2 showed the best performance in case of accuracy, memory usage, training time, and testing time. Also, the lightweight architecture makes it qualified to deploy on real-time applications.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-This research work highlights the importance of transfer learning with four pre-trained models such as MobileNetV2, InceptionV3, ResNet50, and VGG19 while detecting citrus fruit diseases. The study concluded that MobileNetV2 is the best pre-trained model yielding high accuracy for identifying citrus fruit disease from other models (VGG19, ResNet50, and InceptionV3). It fetches the highest precision, recall, and F1 score with the dataset. Thus it has made an excellent training and testing accuracy as well. InceptionV3 closely finished behind the strong numbers but ResNet50 was far back. VGG19 resulted in a decent performance. In the end, MobileNetV2 wins with the highest value for the problem set, hitting both high accuracy and efficiency thus it is most effective in terms of performance and complexity.
+This research work highlights the importance of transfer learning with four pre-trained models such as MobileNetV2, InceptionV3, ResNet50, and VGG19 while detecting these citrus fruit diseases. The study concluded that MobileNetV2 is the best pre-trained model yielding high accuracy for identifying citrus fruit disease from other models (VGG19, ResNet50, and InceptionV3). It fetches the highest precision, recall, and F1 score with the dataset. Thus it has made an excellent training and testing accuracy as well. InceptionV3 closely finished behind the strong numbers but ResNet50 was far back. VGG19 resulted in a decent performance. In the end, MobileNetV2 wins with the highest value for the problem set, hitting both high accuracy and efficiency thus it is most effective in terms of performance and complexity.
 
 \subsection{Limitations}
-This study has several limitations. First, the proposed models were evaluated using only a single citrus fruit dataset consisting of 1,463 images, which is relatively small for training and evaluating deep learning models. Future research should therefore focus on expanding the dataset and integrating a broader range of citrus disease categories to develop more robust and comprehensive disease classification models.
+This study has several limitations. First, the proposed models were evaluated using only a single citrus fruit dataset consisting of 1,463 images, which is relatively small for training and evaluating deep learning models. Future researches should therefore focus on expanding the dataset and integrating a broader range of citrus disease categories to develop  a better robust and comprehensive disease classification models.
 
 \subsection{Future Scope}
 The implementation of bio-inspired models, e.g. GWO (Grey Wolf Optimizer), Particle Swarm Optimizer (PSO), etc. can be a new direction in future work. In addition, building hybrid models merging the best of different architectures could be beneficial to enhance accuracy and robustness. This would be better solved by including explainable AI techniques, as these make it easier to comprehend the model's decision process and lead to trust and adoption in practice.

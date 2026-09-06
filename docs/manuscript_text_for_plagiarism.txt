@@ -705,13 +705,10 @@ complexity analysis.
 3.4.1 Performance Metrics. For the proposed model, some
 parameters are used to evaluate the performances and compare their
 results. The metrics are used as follows:
-Accuracy =
-
 TP + TN
-TP + TN + FP + FN
-
+Accuracy =
 (2)
-
+TP + TN + FP + FN
 TP
 TP + FP
 
@@ -723,18 +720,15 @@ TP + FN
 (4)
 
 Precision =
-
 Recall =
 
-F 1-Score =
-
 2 · Precision · Recall
-Precision + Recall
-
 (5)
-
+Precision + Recall
 where T P = True Positive, T N = True Negative, F P = False
 Positive, and F N = False Negative.
+F 1-Score =
+
 3.4.2 Complexity Metrics. The complexity analysis of a model
 involves evaluating its computational and memory requirements,
 which is essential for understanding its scalability and feasibility
@@ -757,9 +751,10 @@ Programming Language.
 
 RESULT AND DISCUSSION
 
-This part includes a detailed discussion of the results and findings
-throughout the research. The most effective model will be evaluated
-using two analyses: Performance analysis and Complexity analysis.
+This part includes detailed discussion of the results and their
+findings throughout this research. The most effective model
+will be evaluated using two analyses: Performance analysis and
+Complexity analysis.
 
 4.1
 
@@ -772,7 +767,7 @@ the same for the recall percentage. On the contrary, ResNet50
 achieved the lowest value in all performance metrics in this
 experiment. InceptionV3 showed satisfactory value for all metrics.
 Table 6 presents performance metrics for four pre-trained models:
-MobileNetV2, InceptionV3, ResNet50, and VGG19, evaluating
+MobileNetV2, InceptionV3, ResNet50, and VGG19, evaluating the
 Precision, Recall, and F1 Score as percentages.
 
 Performance Analysis
@@ -800,18 +795,18 @@ VGG19
 81.17
 
 4.1.1 Accuracy Analysis. Each model’s accuracy and loss during
-testing, training, and validation, have been evaluated to compare
-their performances. High accuracy indicates successful data
-capture, while low training loss indicates good performance and
-shallow loss may indicate overfitting, where the model learns
-noise rather than patterns. The training accuracy of MobileNetV2
-and InceptionV3 is superior to other models. This remains the
-same for validation and test accuracy. MobileNetV2 produced the
-lowest loss value. On the other hand, ResNet50 has the highest
-loss value among all models. Table 7 presents evaluation metrics
-for models, including MobileNetV2, InceptionV3, ResNet50, and
-VGG19, training, validation, and testing phases, including accuracy
-and loss.
+testing, training, and validation, has been evaluated so that
+comparison could be done based on the performance. High
+accuracy indicates successful data capture, however low training
+loss indicates good performance and shallow loss may indicate
+overfitting, where the model learns noise rather than their patterns.
+The training accuracy of MobileNetV2 and InceptionV3 is superior
+to other models. This remains the same for validation and test
+accuracy. MobileNetV2 produced the lowest loss value. On the
+other hand, ResNet50 has the highest loss value among all
+models. Table 7 presents evaluation metrics for models, including
+MobileNetV2, InceptionV3, ResNet50, and VGG19, training,
+validation, and testing phases, including accuracy and loss.
 Table 7. Accuracy and Loss Metrics Across Training, Validation, and
 Test Phases
 Model
@@ -848,10 +843,10 @@ VGG19
 88.44
 37.76
 
-4.1.2 Confusion Matrix. This matrix provides a comprehensive
+4.1.2 Confusion Matrix. This matrix provides an extensive
 overview of the accuracy, precision, recall, and F1 score used
 by each model, which can be useful in determining the relative
-strengths and weaknesses of the models, particularly concerning
+strengths and weaknesses of these models, particularly concerning
 unbalanced datasets.
 Figure 7 illustrates the confusion matrix for the MobileNetV2,
 VGG19, InceptionV3, and ResNet50 which shows the performance
@@ -864,7 +859,7 @@ Complexity Analysis
 
 The complexity analysis is an important factor in evaluating the
 models. Training time, inference time, and memory usage are
-evaluated for each model to compare their performance.
+evaluated for each of the model to compare their performance.
 Table 8. Quantitative Computational Complexity Metrics Across Models
 Metric
 MobileNetV2 InceptionV3 ResNet50
@@ -890,12 +885,13 @@ VGG19
 
 International Journal of Computer Applications (0975 - 8887)
 Volume * - No.*, September 2026
-generalization; in contrast, the accuracies of ResNet50 were significantly lower indicating sub-optimal learning and generalization
-properties.
-After comparing all the analyses, it is found that MobileNetV2
+generalization; in the contrary, the accuracies of ResNet50
+were significantly lower indicating sub-optimal learning and
+generalization properties.
+After comparing all the analyses, it’s found that MobileNetV2
 showed the best performance in case of accuracy, memory usage,
 training time, and testing time. Also, the lightweight architecture
-makes it suitable to deploy on real-time applications.
+makes it qualified to deploy on real-time applications.
 
 5.
 
@@ -906,11 +902,11 @@ CONCLUSION
 
 This research work highlights the importance of transfer learning
 with four pre-trained models such as MobileNetV2, InceptionV3,
-ResNet50, and VGG19 while detecting citrus fruit diseases. The
-study concluded that MobileNetV2 is the best pre-trained model
-yielding high accuracy for identifying citrus fruit disease from
-other models (VGG19, ResNet50, and InceptionV3). It fetches
-the highest precision, recall, and F1 score with the dataset.
+ResNet50, and VGG19 while detecting these citrus fruit diseases.
+The study concluded that MobileNetV2 is the best pre-trained
+model yielding high accuracy for identifying citrus fruit disease
+from other models (VGG19, ResNet50, and InceptionV3). It
+fetches the highest precision, recall, and F1 score with the dataset.
 Thus it has made an excellent training and testing accuracy as
 well. InceptionV3 closely finished behind the strong numbers but
 ResNet50 was far back. VGG19 resulted in a decent performance.
@@ -925,9 +921,9 @@ Limitations
 This study has several limitations. First, the proposed models were
 evaluated using only a single citrus fruit dataset consisting of
 1,463 images, which is relatively small for training and evaluating
-deep learning models. Future research should therefore focus on
+deep learning models. Future researches should therefore focus on
 expanding the dataset and integrating a broader range of citrus
-disease categories to develop more robust and comprehensive
+disease categories to develop a better robust and comprehensive
 disease classification models.
 
 5.2
@@ -938,7 +934,7 @@ Table 8 compares four pre-trained models: MobileNetV2, InceptionV3, ResNet50, an
 time, and memory usage. MobileNetV2 is the most efficient with
 the shortest training time of 406.29 seconds and the lowest memory
 usage of 9.82 MB, while VGG19 has the highest training time of
-3360.14 seconds and the highest memory usage of 118.59 MB.
+3360.14 seconds and with the highest memory usage of 118.59 MB.
 Inference times are relatively close across all models, with VGG19
 slightly leading at 80.34 seconds.
 Figure 8 shows that MobileNetV2 had the highest performance in
@@ -950,16 +946,16 @@ of the disease.
 
 Comparative Discussion
 
-This section will give a comparative discussion of used models
-during citrus fruit disease diagnosis using their performance
-and complexity metrics. In this work, the models of four
-pre-trained models, namely VGG19, ResNet50, InceptionV3, and
-MobileNetV2, have been evaluated on the citrus fruit diseases
-dataset, and the goal was to select the best model based on
-performance and complexity. The performance used to evaluate the
-models was precision, recall, F1-score, and accuracy.
+This section will give a comparative discussion of models
+which are used during citrus fruit disease diagnosis using their
+performance and complexity metrics. In this work, the models of
+four pre-trained models, namely VGG19, ResNet50, InceptionV3,
+and MobileNetV2, have been evaluated on the citrus fruit diseases
+dataset, and the goal was to be able to select the best model based
+on performance and complexity. The performance used to evaluate
+the models was precision, recall, F1-score, and accuracy.
 MobileNetV2 and InceptionV3 have quite large training accuracies
-as well as low training loss, and seem to be tending toward
+as well as low training loss, and it seem to be tending toward
 
 Future Scope
 
