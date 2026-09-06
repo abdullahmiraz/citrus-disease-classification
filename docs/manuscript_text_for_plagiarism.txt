@@ -25,27 +25,26 @@ ABSTRACT
 Keywords
 
 Citrus fruit diseases are a real threat affecting agricultural
-productivity and can lead to losses that are hard to recover
-if they are not detected and managed promptly. This research
-focuses on using transfer learning and deep learning architectures
-to classify the citrus diseases to reduce agricultural losses and
-increase crop productivity. The study uses dataset of 1,463
-high-resolution images of citrus fruits and leaves that fall under
-these classes: canker, black-spot, greening, and healthy. The
-images were processed for the analysis using a pre-trained Neural
-Network (CNN), such as MobileNetV2, InceptionV3, ResNet50,
-and VGG19. Transfer learning was used here to fine-tune models
-on the task of disease classification, that depends on features
-previously learned from larger datasets. Model performance was
-evaluated through accuracy, precision, recall, F1 score, and
-computational efficiency metrics. Out of the four models analyzed
-in this research study, MobileNetV2 attained the highest accuracy
-at 97.29% while ResNet50 did not perform very well with an
-accuracy value of 58.21%. This emphasizes the importance of the
-selection of models. This research showcases how transfer learning
-and deep learning can bring scalability into automated systems for
-managing citrus diseases providing a better accuracy, and quicker
-diagnosis times.
+productivity and can lead to losses that are hard to recover if they
+are not detected and managed promptly. This research focuses on
+using transfer learning and deep learning architectures to classify
+citrus diseases to reduce agricultural losses and increase crop
+productivity. The study uses a dataset of 1,463 high-resolution
+images of citrus fruits and leaves that fall under these classes:
+canker, black-spot, greening, and healthy. The images were
+processed for analysis using a pre-trained Neural Network (CNN)
+such as MobileNetV2, InceptionV3, ResNet50, and VGG19.
+Transfer learning was used to fine-tune these models on the task
+of disease classification, which depends on features previously
+learned from larger datasets. Model performance was evaluated
+through accuracy, precision, recall, F1 score, and computational
+efficiency metrics. Out of the four models analyzed in this research
+study, MobileNetV2 attained the highest accuracy at 97.29% while
+ResNet50 did not perform well with an accuracy value of 58.21%.
+This emphasizes the importance of the selection of models. This
+research showcases how transfer learning and deep learning can
+bring scalability into automated systems for managing citrus
+diseases providing better accuracy, and quicker diagnosis times.
 
 Transfer Learning, Convolutional Neural Networks, Citrus Disease
 Classification, Performance Metrics, Computational Complexity,
@@ -58,76 +57,73 @@ Algorithms, Experimentation, Performance
 
 INTRODUCTION
 
-Agriculture is one of the most important factors in Bangladesh as
-the national economy directly depends on this. Agriculture aims to
-increasing the food production and quality while reducing expenses
-and increasing profit [1, 2, 3]. Due to the population growth and
-climate changes, Bangladesh’s agricultural sectors are using novel
-technology to improve the food production. Precision agriculture
-(PA) is an advanced technology that provides modern techniques
-for optimizing farm production [4, 5]. Precision agriculture can be
-used in many many ways to help the farmers, such as spotting both
-common and rare plant pests, detecting weeds, forecasting better
-crop production, and identifying plant diseases among others [6].
-Bangladesh’s citrus fruit production has increased at an average
-yearly rate of 5.61% from 19,163 tonnes in 1973 to 175,325
-tonnes in 2022 [7]. This research was carried out in many citrus
-farms in Sylhet, Bangladesh from November to December 2014
-to investigate the density and severity of diseases among various
-citrus species. Also an extensive analysis was performed on 560
-plants belonging to seventeen different citrus species, but no
-symptom could be detected. The survey revealed that canker,
-scab, dieback, and greening were the major diseases in the area
-[8, 3]. Early symptoms of the plant diseases are important for
+Agriculture is one of the most important factors in Bangladesh
+as the national economy directly depends on it. Agriculture aims
+to increase food production and quality while reducing expenses
+and increasing profit [1, 2, 3]. Due to population growth and
+climate change, Bangladesh’s agricultural sectors are using novel
+technology to increase food production. Precision agriculture (PA)
+is an advanced technology that provides modern techniques for
+optimizing farm production [4, 5]. Precision agriculture can be
+used in many ways to help farmers, such as spotting plant pests,
+detecting weeds, forecasting crop yields, and identifying plant
+diseases, among others [6].
+Bangladesh’s citrus fruit production increased at an average yearly
+rate of 5.61% from 19,163 tonnes in 1973 to 175,325 tonnes
+in 2022 [7]. This research was carried out in many citrus farms
+in Sylhet, Bangladesh from November to December 2014 to
+investigate the density and severity of diseases among various citrus
+species. Also an extensive analysis was performed on 560 plants
+belonging to seventeen different citrus species, but no symptom
+could be detected. The survey revealed that canker, scab, dieback,
+and greening were the major diseases in the area [8, 3]. Early
+symptoms of plant diseases are important for minimizing risks and
 
 1
 
 International Journal of Computer Applications (0975 - 8887)
 Volume * - No.*, September 2026
-minimizing risks and reducing losses for farmers. In recent years
-deep learning has found widespread usage in countless domains
-including agriculture. For identifying diseases of plants, it is a
-well-known and recognized that CNNs are the most efficient
-deep learning technique [8]. Some of these architectures including
-AlexNet, GoogLeNet, VGG16, VGG19, InceptionV3, DenseNet,
-etc. are used for detecting and identifying plant diseases using
-CNN.
+reducing losses for farmers. In recent years deep learning has found
+widespread usage in countless domains including agriculture. For
+identifying diseases of plants, it is well known and recognized that
+CNNs are the most efficient deep learning technique [8]. Some
+of these architectures including AlexNet, GoogLeNet, VGG16,
+VGG19, InceptionV3, DenseNet, etc. are used for detecting and
+identifying plant diseases using CNN.
 
 1.1
 
 Context and Background
 
-Bangladesh, being a developing country, crop diseases in here
-negatively impact the economy and food resources [9, 10].
-Specially, Bangladesh is a nation that is greatly dependent on
-agricultural products such as paddy, corn, wheat, etc. The weather
-of Bangladesh is suitable for crop production but in recent years,
-crop diseases have reduced food production greatly. Reducing
-crop diseases is one of the important goals for the Government
-[9]. To capture the images, it can be brought together modern
-electronic devices with high-quality cameras and then use models
-such as Machine Learning or Deep Learning to process the image
-[3, 11]. Early detection of the diseases through the identification of
-diseased areas in plants using advanced digital image processing
-methodologies could help in treating it effectively as well. In
-Bangladesh, 39,678 acres were used for crop cultivation and other
-agricultural purposes based on statistics done in 2019–2020 [12, 9].
+Being a developing country, crop diseases in Bangladesh negatively
+impact the economy and food resources [9, 10]. Specially,
+Bangladesh is a nation that is greatly dependent on agriculture
+such as paddy, corn, wheat, etc. The weather of Bangladesh is
+suitable for crop production but in recent years, crop diseases
+have reduced food production greatly. Reducing crop diseases is
+one of the important goals for the Government [9]. To capture
+the images, it can be brought together modern electronic devices
+with high-quality cameras and then use models such as Machine
+Learning or Deep Learning to process the image [3, 11]. Early
+detection of the disease through the identification of diseased areas
+in plants using advanced digital image processing methodologies
+could help in treating it effectively as well. In Bangladesh, 39,678
+acres were used for crop cultivation and other agricultural purposes
+based on statistics done in 2019–2020 [12, 9].
 
 1.2
 
 Research Motivation
 
-Deep learning models and supervised machine learning are used
-in the study that has already been done on the classification of
-citrus diseases from images [2, 8, 10]. AlexNet which has 8 layers,
-while VGG-19 has 47 layers, both optimized using Stochastic
-Gradient Descent with Momentum (SGDM) [8]. However, it has
-high computational costs, significant memory requirements, longer
-training times, and sub optimal performance on small datasets.
-Also, they did not do a complexity analysis of those architectures.
-In this paper, a system is proposed that can effectively classify
-citrus fruit diseases and analyzes the complexity of the CNN
-architectures.
+Deep learning models and supervised machine learning are used in
+the study that has already been done on the classification of citrus
+diseases from images [2, 8, 10]. AlexNet has 8 layers, while VGG19 has 47 layers, both optimized using Stochastic Gradient Descent
+with Momentum (SGDM) [8]. However, it has high computational
+costs, significant memory requirements, longer training times, and
+suboptimal performance on small datasets. Also, they did not do a
+complexity analysis of those architectures. In this paper, a system
+is proposed that can effectively classify citrus fruit diseases and
+perform the complexity of the CNN architectures.
 
 1.3
 
@@ -142,20 +138,6 @@ VGG19, ResNet50).
 complexity analysis.
 
 1.4
-
-Significance of Research
-
-This research is done using transfer learning approaches to
-implement pre-trained models to classify citrus fruit diseases.
-Evaluating the performance metrics and complexity metrics, it will
-determine the most efficient architectures of the Convolutional
-Neural Network (CNNs).
-The structure of this paper is as follows. Section 2 presents
-the literature review. In Section 3, the proposed methodology is
-discussed in detail. In Section 4, all experiments are conducted and
-the models are compared using some parameters, also addressing
-the computational complexity of the models. Section 5 presents the
-conclusion.
 
 2.
 
@@ -177,7 +159,7 @@ data acquisition, data pre-processing, and the application of CNN.
 They used 2293 images from PlantVillage and got an accuracy of
 94.55%. However, they used only 213 images for each class which
 is not sufficient.
-Balafas et al. [6] presents a detailed comparative analysis of ML
+Balafas et al. [6] presented a detailed comparative analysis of ML
 and DL to detect plant leaf diseases. In this paper, a comparative
 study is carried out regarding the intrinsic performance of deep
 learning (DL) about machine learning (ML), especially towards
@@ -185,31 +167,44 @@ plant leaf diseases with a focus on citrus trees. To categorize the
 disorders, they submitted their collected data into three well-known
 machine learning (ML) models: Support Vector Machine (SVM),
 Random Forest (RF), and Stochastic Gradient Descent (SGD);
-moreover, they fed their data into three decision making (DL)
-models like: InceptionV3, VGG16, and VGG19.
+moreover, they fed their data into three decision-making (DL)
+models: InceptionV3, VGG16, and VGG19.
 For identifying the diseases in citrus, Elaraby et al. [8] used a
 deep learning approach. The problem of optimizing a deep learning
-strategy to quickly and precisely identify their illnesses in citrus
-crops is discussed in their study. The goal of the project is to use
-the deep learning models VGG16, VGG19, and InceptionV3 to
-better classify illnesses, including Black Spot, Canker, Greening,
-and Melanose.
+strategy to quickly and precisely identify illnesses in citrus crops
+is discussed in their study. The goal of the project is to use the
+deep learning models VGG16, VGG19, and InceptionV3 to better
+classify illnesses, including Black Spot, Canker, Greening, and
+Melanose.
 A mobile-based system for detecting plant leaf diseases using deep
-learning is written by Sujatha et al. [4] that mainly addresses
-the plant diseases present in the agriculture sector and also
-highlights the diseases that cause significant crop production losses
-every year, providing a modern smartphone application that takes
-advantage of deep learning algorithms to diagnose diseases on plant
-leaves.
+learning is written by Sujatha et al. [4] that mainly addresses the
+plant diseases present in the agriculture sector and also highlights
+the diseases that cause significant crop production losses every
+year, providing a smartphone application that takes advantage of
+deep learning algorithms to diagnose diseases on plant leaves.
 Detection of Bangladeshi-produced plant disease using a transfer
 learning based on deep neural model is studied by Hasan et al.
-[9, 22]. This paper addresses the early detection of plant diseases
+[9, 14]. This paper addresses the early detection of plant diseases
 using a transfer learning approach with deep neural networks,
-focusing on the Bangladeshi crops [22]. The research classified
-the plant diseases which are very common in Bangladesh by using
+focusing on Bangladeshi crops [14]. The research classified the
+plant diseases which are very common in Bangladesh by using
 pre-trained models such as AlexNet and VGG19. They trained
 the models using transfer learning on a plant leaf-specific dataset
-containing 18 categories [22].
+containing 18 categories [14].
+
+Significance of Research
+
+This research is done using transfer learning approaches to
+implement pre-trained models to classify citrus fruit diseases.
+Evaluating the performance metrics and complexity metrics, it will
+determine the most efficient architectures of the Convolutional
+Neural Network (CNNs).
+The structure of this paper is as follows. Section 2 presents
+the literature review. In Section 3, the proposed methodology is
+discussed in detail. In Section 4, all experiments are conducted and
+the models are compared using some parameters, also addressing
+the computational complexity of the models. Section 5 presents the
+conclusion.
 
 3.
 
@@ -220,7 +215,7 @@ this work to make it appropriate for image processing. Keras
 and TensorFlow were used for the experiment to utilize their
 reliable features, enabling developers to develop and deploy deep
 learning models. Various advanced Convolutional Neural Network
-architectures were tested here, which include VGG19, ResNet50,
+architectures were tested, which include VGG19, ResNet50,
 InceptionV3, and MobileNetV2 due to their high accuracy in image
 classification and detection. The detailed workflow of this research
 is given in Figure 1.
@@ -251,13 +246,13 @@ Dataset Size
 
 2023 HLB, Black spot, Melanose, Canker,
 Scab
-W. Gómez-Flores et al. [18] 2024 HLB, Greasy spot, Deficiencies, Citrus Mite, Red scale
-Nouman Butt et al. [19]
+W. Gómez-Flores et al. [19] 2024 HLB, Greasy spot, Deficiencies, Citrus Mite, Red scale
+Nouman Butt et al. [20]
 2024 Canker, Citrus scab, Black spot
-J. Shermila et al. [20]
+J. Shermila et al. [21]
 2024 Fruit blight, Greening, Scab,
 Melanoses
-A.K. Saini et al. [21]
+A.K. Saini et al. [22]
 2024 Anthracnose, Melanose, Brown Spot
 
 2
@@ -270,19 +265,19 @@ A. Elaraby et al. [8]
 
 4
 
-S. Parez et al. [14]
+S. Parez et al. [15]
 
 5
 
-Dehuan Luo et al. [15]
+Dehuan Luo et al. [16]
 
 6
 
-Madhusudan G. et al. [16]
+Madhusudan G. et al. [17]
 
 7
 
-Poonam Dhiman et al. [17]
+Poonam Dhiman et al. [18]
 
 8
 9
@@ -386,7 +381,7 @@ visualization helps to see how the dataset is behaving with its
 balance and has any type of class imbalance issue in the current
 system, or not. Figure 3 illustrates the sample images of citrus
 fruit disease dataset.
-• Data Splitting: Dataset is needed to be split into training,
+• Data Splitting: Dataset needs to be split into training,
 validation, and testing subsets to facilitate the model training.
 Datasets split up with 80% for training, 10% for validation,
 and 10% for testing. This split allows the model to have data
@@ -396,7 +391,7 @@ shows a pie chart that illustrates the distribution of the dataset
 for training, validation, and testing.
 3.1.2 Dataset Pre-processing. A special function has been
 designed that handles the pre-processing of training, validation,
-and testing datasets. The first step of pre processing is image
+and testing datasets. The first step of pre-processing is image
 augmentation. Image augmentation has been done following these
 methods:
 
@@ -431,14 +426,14 @@ Transfer Learning
 
 In deep learning, transfer learning is a method where the model
 trained for one task is used as a starting point in order to solve
-another related or similar problem [23]. This speeds learning
-and boosts the performance on a second, possibly under-sampled
-issue by capitalizing the information obtained from a job. Transfer
-learning can be used for CNN’s pre-trained models, feature
-extraction, and better fine tuning.
+another related or similar problem [23]. This speeds learning and
+boosts performance on a second, possibly under-sampled issue by
+capitalizing the information obtained from a job. Transfer learning
+can be used for CNN’s pre-trained models, feature extraction, and
+fine-tuning.
 3.2.1 Pre-Trained Models. Transfer learning allows using
 CNN’s pre-trained models which show better accuracy, even on
-medium-sized datasets [22]. As these models are already trained on
+medium-sized datasets [14]. As these models are already trained on
 benchmark datasets, they cost less and require less computational
 power. It also reduces training time and provides high accuracy.
 Figure 5 presents the workflow flowchart of pre-trained models for
@@ -461,7 +456,7 @@ base model are frozen, which prevents them from being trained
 further and enables them to use their learned features. Then
 a Dropout layer with a dropout rate of 40% is applied to
 prevent overfitting by setting a fraction of the input units to
-zero at random during training [27, 28, 29]. The output then is
+zero at random during training [27, 28, 29]. The output is then
 transformed into a one-dimensional vector suitable for the fully
 connected layers using a flattened layer [30]. A dense layer
 with 512 units and ReLU activation is added as the second fully
@@ -469,7 +464,7 @@ connected layer. Another Dropout layer, with a dropout rate of
 20%, follows the second dense layer. Finally, the output layer
 is a dense layer with 4 units and a softmax activation function,
 which gives the class probabilities for the classification task
-[31]. Table 2 present the architecture of VGG19 in detail.
+[31]. Table 2 presents the architecture of VGG19 in detail.
 Table 2. Layer Architecture and Parameter Details of
 Fine-Tuned VGG19
 Layer (Type)
@@ -705,10 +700,13 @@ complexity analysis.
 3.4.1 Performance Metrics. For the proposed model, some
 parameters are used to evaluate the performances and compare their
 results. The metrics are used as follows:
-TP + TN
 Accuracy =
-(2)
+
+TP + TN
 TP + TN + FP + FN
+
+(2)
+
 TP
 TP + FP
 
@@ -720,15 +718,18 @@ TP + FN
 (4)
 
 Precision =
+
 Recall =
 
-2 · Precision · Recall
-(5)
-Precision + Recall
-where T P = True Positive, T N = True Negative, F P = False
-Positive, and F N = False Negative.
 F 1-Score =
 
+2 · Precision · Recall
+Precision + Recall
+
+(5)
+
+where T P = True Positive, T N = True Negative, F P = False
+Positive, and F N = False Negative.
 3.4.2 Complexity Metrics. The complexity analysis of a model
 involves evaluating its computational and memory requirements,
 which is essential for understanding its scalability and feasibility
@@ -751,10 +752,9 @@ Programming Language.
 
 RESULT AND DISCUSSION
 
-This part includes detailed discussion of the results and their
-findings throughout this research. The most effective model
-will be evaluated using two analyses: Performance analysis and
-Complexity analysis.
+This part includes a detailed discussion of the results and findings
+throughout the research. The most effective model will be evaluated
+using two analyses: Performance analysis and Complexity analysis.
 
 4.1
 
@@ -767,7 +767,7 @@ the same for the recall percentage. On the contrary, ResNet50
 achieved the lowest value in all performance metrics in this
 experiment. InceptionV3 showed satisfactory value for all metrics.
 Table 6 presents performance metrics for four pre-trained models:
-MobileNetV2, InceptionV3, ResNet50, and VGG19, evaluating the
+MobileNetV2, InceptionV3, ResNet50, and VGG19, evaluating
 Precision, Recall, and F1 Score as percentages.
 
 Performance Analysis
@@ -795,18 +795,18 @@ VGG19
 81.17
 
 4.1.1 Accuracy Analysis. Each model’s accuracy and loss during
-testing, training, and validation, has been evaluated so that
-comparison could be done based on the performance. High
-accuracy indicates successful data capture, however low training
-loss indicates good performance and shallow loss may indicate
-overfitting, where the model learns noise rather than their patterns.
-The training accuracy of MobileNetV2 and InceptionV3 is superior
-to other models. This remains the same for validation and test
-accuracy. MobileNetV2 produced the lowest loss value. On the
-other hand, ResNet50 has the highest loss value among all
-models. Table 7 presents evaluation metrics for models, including
-MobileNetV2, InceptionV3, ResNet50, and VGG19, training,
-validation, and testing phases, including accuracy and loss.
+testing, training, and validation, have been evaluated to compare
+their performances. High accuracy indicates successful data
+capture, while low training loss indicates good performance and
+shallow loss may indicate overfitting, where the model learns
+noise rather than patterns. The training accuracy of MobileNetV2
+and InceptionV3 is superior to other models. This remains the
+same for validation and test accuracy. MobileNetV2 produced the
+lowest loss value. On the other hand, ResNet50 has the highest
+loss value among all models. Table 7 presents evaluation metrics
+for models, including MobileNetV2, InceptionV3, ResNet50, and
+VGG19, training, validation, and testing phases, including accuracy
+and loss.
 Table 7. Accuracy and Loss Metrics Across Training, Validation, and
 Test Phases
 Model
@@ -843,10 +843,10 @@ VGG19
 88.44
 37.76
 
-4.1.2 Confusion Matrix. This matrix provides an extensive
+4.1.2 Confusion Matrix. This matrix provides a comprehensive
 overview of the accuracy, precision, recall, and F1 score used
 by each model, which can be useful in determining the relative
-strengths and weaknesses of these models, particularly concerning
+strengths and weaknesses of the models, particularly concerning
 unbalanced datasets.
 Figure 7 illustrates the confusion matrix for the MobileNetV2,
 VGG19, InceptionV3, and ResNet50 which shows the performance
@@ -859,7 +859,7 @@ Complexity Analysis
 
 The complexity analysis is an important factor in evaluating the
 models. Training time, inference time, and memory usage are
-evaluated for each of the model to compare their performance.
+evaluated for each model to compare their performance.
 Table 8. Quantitative Computational Complexity Metrics Across Models
 Metric
 MobileNetV2 InceptionV3 ResNet50
@@ -885,13 +885,12 @@ VGG19
 
 International Journal of Computer Applications (0975 - 8887)
 Volume * - No.*, September 2026
-generalization; in the contrary, the accuracies of ResNet50
-were significantly lower indicating sub-optimal learning and
-generalization properties.
-After comparing all the analyses, it’s found that MobileNetV2
+generalization; in contrast, the accuracies of ResNet50 were significantly lower indicating sub-optimal learning and generalization
+properties.
+After comparing all the analyses, it is found that MobileNetV2
 showed the best performance in case of accuracy, memory usage,
 training time, and testing time. Also, the lightweight architecture
-makes it qualified to deploy on real-time applications.
+makes it suitable to deploy on real-time applications.
 
 5.
 
@@ -902,11 +901,11 @@ CONCLUSION
 
 This research work highlights the importance of transfer learning
 with four pre-trained models such as MobileNetV2, InceptionV3,
-ResNet50, and VGG19 while detecting these citrus fruit diseases.
-The study concluded that MobileNetV2 is the best pre-trained
-model yielding high accuracy for identifying citrus fruit disease
-from other models (VGG19, ResNet50, and InceptionV3). It
-fetches the highest precision, recall, and F1 score with the dataset.
+ResNet50, and VGG19 while detecting citrus fruit diseases. The
+study concluded that MobileNetV2 is the best pre-trained model
+yielding high accuracy for identifying citrus fruit disease from
+other models (VGG19, ResNet50, and InceptionV3). It fetches
+the highest precision, recall, and F1 score with the dataset.
 Thus it has made an excellent training and testing accuracy as
 well. InceptionV3 closely finished behind the strong numbers but
 ResNet50 was far back. VGG19 resulted in a decent performance.
@@ -921,9 +920,9 @@ Limitations
 This study has several limitations. First, the proposed models were
 evaluated using only a single citrus fruit dataset consisting of
 1,463 images, which is relatively small for training and evaluating
-deep learning models. Future researches should therefore focus on
+deep learning models. Future research should therefore focus on
 expanding the dataset and integrating a broader range of citrus
-disease categories to develop a better robust and comprehensive
+disease categories to develop more robust and comprehensive
 disease classification models.
 
 5.2
@@ -934,7 +933,7 @@ Table 8 compares four pre-trained models: MobileNetV2, InceptionV3, ResNet50, an
 time, and memory usage. MobileNetV2 is the most efficient with
 the shortest training time of 406.29 seconds and the lowest memory
 usage of 9.82 MB, while VGG19 has the highest training time of
-3360.14 seconds and with the highest memory usage of 118.59 MB.
+3360.14 seconds and the highest memory usage of 118.59 MB.
 Inference times are relatively close across all models, with VGG19
 slightly leading at 80.34 seconds.
 Figure 8 shows that MobileNetV2 had the highest performance in
@@ -946,16 +945,16 @@ of the disease.
 
 Comparative Discussion
 
-This section will give a comparative discussion of models
-which are used during citrus fruit disease diagnosis using their
-performance and complexity metrics. In this work, the models of
-four pre-trained models, namely VGG19, ResNet50, InceptionV3,
-and MobileNetV2, have been evaluated on the citrus fruit diseases
-dataset, and the goal was to be able to select the best model based
-on performance and complexity. The performance used to evaluate
-the models was precision, recall, F1-score, and accuracy.
+This section will give a comparative discussion of used models
+during citrus fruit disease diagnosis using their performance
+and complexity metrics. In this work, the models of four
+pre-trained models, namely VGG19, ResNet50, InceptionV3, and
+MobileNetV2, have been evaluated on the citrus fruit diseases
+dataset, and the goal was to select the best model based on
+performance and complexity. The performance used to evaluate the
+models was precision, recall, F1-score, and accuracy.
 MobileNetV2 and InceptionV3 have quite large training accuracies
-as well as low training loss, and it seem to be tending toward
+as well as low training loss, and seem to be tending toward
 
 Future Scope
 
@@ -1023,46 +1022,46 @@ Muhammad Faisal Azam, M. Ikram Ullah Lali, and
 Muhammad Younus Javed. Detection and classification of
 citrus diseases in agriculture based on optimized weighted
 segmentation and feature selection. Computers and Electronics in Agriculture, 150:220–234, July 2018.
-[14] Sana Parez, Naqqash Dilshad, Turki M. Alanazi, and Jong
+[14] Al-Kindi Publisher. Al-kindi publisher: Open access journals
+and books, 2025. Accessed: 2 March 2025.
+[15] Sana Parez, Naqqash Dilshad, Turki M. Alanazi, and Jong
 Weon Lee. Towards sustainable agricultural systems: A
 lightweight deep learning model for plant disease detection.
 Computer Systems Science and Engineering, 47(1):515–536,
 2023.
-[15] Dehuan Luo, Yueju Xue, Xinru Deng, Bin Yang, Haifei Chen,
+[16] Dehuan Luo, Yueju Xue, Xinru Deng, Bin Yang, Haifei Chen,
 and Zhujiang Mo. Citrus diseases and pests detection model
 based on self-attention yolov8. IEEE Access, 11:139872–
 139881, 2023.
-[16] Madhusudan G. Lanjewar and Jivan S. Parab. Cnn and
+[17] Madhusudan G. Lanjewar and Jivan S. Parab. Cnn and
 transfer learning methods with augmentation for citrus leaf
 diseases detection using paas cloud on mobile. Multimedia
 Tools and Applications, 83(11):31733–31758, September
 2023.
-[17] Poonam Dhiman, Amandeep Kaur, Yasir Hamid, Eatedal
+[18] Poonam Dhiman, Amandeep Kaur, Yasir Hamid, Eatedal
 Alabdulkreem, Hela Elmannai, and Nedal Ababneh. Smart
 disease detection system for citrus fruits using deep learning
 with edge computing. Sustainability, 15(5):4576, March
 2023.
-[18] Wilfrido Gómez-Flores, Juan José Garza-Saldaña, and
+[19] Wilfrido Gómez-Flores, Juan José Garza-Saldaña, and
 Sóstenes Edmundo Varela-Fuentes. Citrusuat: A dataset
+
 of orange citrus sinensis leaves for abnormality detection
 using image analysis techniques. Data in Brief, 52:109908,
 February 2024.
-
-[19] Nouman Butt et al. Citrus disease detection and classification
+[20] Nouman Butt et al. Citrus disease detection and classification
 using machine learning techniques. Journal of Computing &
 Biomedical Informatics, 6(02), March 2024.
-[20] Josephin Shermila P, Akila Victor, S. Oswalt Manoj, and
+[21] Josephin Shermila P, Akila Victor, S. Oswalt Manoj, and
 E. Anna Devi. Automatic detection and classification of
 disease in citrus fruit and leaves using a customized cnn based
 model. Boletin Latinoamericano y del Caribe de Plantas
 Medicinales y Aromaticas, 23(2):180–198, March 2024.
-[21] Ashok Kumar Saini, Roheet Bhatnagar, and Devesh Kumar
+[22] Ashok Kumar Saini, Roheet Bhatnagar, and Devesh Kumar
 Srivastava. Sadcnn-orbm: a hybrid deep learning model
 based citrus disease detection and classification. International
 Journal of Electrical and Computer Engineering (IJECE),
 14(2):2191, April 2024.
-[22] Al-Kindi Publisher. Al-kindi publisher: Open access journals
-and books, 2025. Accessed: 2 March 2025.
 [23] Ebin.pub. Ebin.pub: Free ebooks and digital resources, 2025.
 Accessed: 2 March 2025.
 [24] Ambreen Shah, Muhammad Attique Khan, Ahmed
